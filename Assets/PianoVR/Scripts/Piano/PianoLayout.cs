@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PianoVR.Piano
 {
-    public enum KeyboardSize { Keys49, Keys61, Keys76, Keys88 }
+    public enum KeyboardSize { Keys49, Keys61, Keys76, Keys88, Keys25, Keys37 }
 
     /// <summary>
     /// Geometría del piano real en el mundo. Se define con dos puntos calibrados: el borde
@@ -46,7 +46,13 @@ namespace PianoVR.Piano
         public KeyboardSize Size
         {
             get => size;
-            set { size = value; ApplySize(); if (IsCalibrated) SetCalibration(_lowLocal, _highLocal, false); }
+            set
+            {
+                size = value;
+                ApplySize();
+                if (IsCalibrated) SetCalibration(_lowLocal, _highLocal, true);
+                else Changed?.Invoke();
+            }
         }
 
         Vector3 _lowLocal, _highLocal;
@@ -55,6 +61,7 @@ namespace PianoVR.Piano
         void Awake()
         {
             if (trackingSpace == null && Camera.main != null) trackingSpace = Camera.main.transform.parent;
+            PianoVR.Hands.HandInput.TrackingSpace = trackingSpace;
             ApplySize();
             Load();
         }
@@ -66,6 +73,8 @@ namespace PianoVR.Piano
                 case KeyboardSize.Keys49: LowestPitch = 36; HighestPitch = 84; break;
                 case KeyboardSize.Keys61: LowestPitch = 36; HighestPitch = 96; break;
                 case KeyboardSize.Keys76: LowestPitch = 28; HighestPitch = 103; break;
+                case KeyboardSize.Keys25: LowestPitch = 48; HighestPitch = 72; break;
+                case KeyboardSize.Keys37: LowestPitch = 48; HighestPitch = 84; break;
                 default:                  LowestPitch = 21; HighestPitch = 108; break;
             }
         }
@@ -76,6 +85,68 @@ namespace PianoVR.Piano
         {
             int pc = ((pitch % 12) + 12) % 12;
             return pc == 1 || pc == 3 || pc == 6 || pc == 8 || pc == 10;
+        }
+
+        public int KeyCount => HighestPitch - LowestPitch + 1;
+
+        public static string SizeLabel(KeyboardSize s)
+        {
+            switch (s)
+            {
+                case KeyboardSize.Keys25: return "25 teclas";
+                case KeyboardSize.Keys37: return "37 teclas";
+                case KeyboardSize.Keys49: return "49 teclas";
+                case KeyboardSize.Keys61: return "61 teclas";
+                case KeyboardSize.Keys76: return "76 teclas";
+                default: return "88 teclas";
+            }
+        }
+
+        /// <summary>Convierte un punto del mundo a coordenadas del piano: x = lateral desde el centro de la tecla más grave, y = altura sobre las blancas, z = profundidad desde el borde frontal.</summary>
+        public Vector3 ToPianoSpace(Vector3 world)
+        {
+            Vector3 d = world - Origin;
+            return new Vector3(Vector3.Dot(d, Right), Vector3.Dot(d, Up), Vector3.Dot(d, Forward));
+        }
+
+        /// <summary>Qué tecla hay bajo un punto en coordenadas del piano (-1 si ninguna).</summary>
+        public int KeyAt(Vector3 piano)
+        {
+            if (piano.z < -0.01f || piano.z > whiteKeyDepth + 0.01f) return -1;
+            float w = WhiteKeyWidth;
+
+            // Zona de teclas negras: la parte de atrás.
+            if (piano.z > whiteKeyDepth - blackKeyDepth)
+            {
+                int whiteBelow = Mathf.FloorToInt(piano.x / w + 0.5f); // tecla blanca bajo el punto
+                for (int candidate = 0; candidate < 2; candidate++)
+                {
+                    // Una negra está entre la blanca i y la i+1: probamos a la derecha de las dos blancas vecinas.
+                    int whiteIdx = whiteBelow - candidate;
+                    int pitch = WhiteIndexToPitch(whiteIdx);
+                    if (pitch < 0 || !Contains(pitch + 1) || !IsBlack(pitch + 1)) continue;
+                    float center = LateralOffset(pitch + 1);
+                    if (Mathf.Abs(piano.x - center) <= KeyWidth(pitch + 1) * 0.5f) return pitch + 1;
+                }
+            }
+
+            int idx = Mathf.FloorToInt(piano.x / w + 0.5f);
+            int white = WhiteIndexToPitch(idx);
+            return white;
+        }
+
+        /// <summary>Tono MIDI de la n-ésima tecla blanca (0 = la más grave). -1 fuera de rango.</summary>
+        public int WhiteIndexToPitch(int index)
+        {
+            if (index < 0) return -1;
+            int count = 0;
+            for (int p = LowestPitch; p <= HighestPitch; p++)
+            {
+                if (IsBlack(p)) continue;
+                if (count == index) return p;
+                count++;
+            }
+            return -1;
         }
 
         public bool Contains(int pitch) => pitch >= LowestPitch && pitch <= HighestPitch;
@@ -115,6 +186,51 @@ namespace PianoVR.Piano
         {
             return Origin + Right * LateralOffset(pitch) + Forward * (whiteKeyDepth * 0.92f)
                    + Up * (IsBlack(pitch) ? blackKeyHeight : 0f);
+        }
+
+        /// <summary>Ancho estándar de una tecla blanca de piano (m).</summary>
+        public const float StandardWhiteKeyWidth = 0.0235f;
+
+        /// <summary>
+        /// Adivina cuántas teclas tiene un teclado real a partir de la distancia entre la tecla más grave
+        /// y la más aguda, asumiendo teclas de tamaño estándar.
+        /// </summary>
+        public static KeyboardSize GuessSize(float spanMeters)
+        {
+            KeyboardSize best = KeyboardSize.Keys61;
+            float bestError = float.MaxValue;
+            foreach (KeyboardSize s in System.Enum.GetValues(typeof(KeyboardSize)))
+            {
+                float expected = (WhiteKeysFor(s) - 1) * StandardWhiteKeyWidth;
+                float error = Mathf.Abs(spanMeters - expected) / expected;
+                if (error < bestError) { bestError = error; best = s; }
+            }
+            return best;
+        }
+
+        static int WhiteKeysFor(KeyboardSize s)
+        {
+            switch (s)
+            {
+                case KeyboardSize.Keys25: return 15;
+                case KeyboardSize.Keys37: return 22;
+                case KeyboardSize.Keys49: return 29;
+                case KeyboardSize.Keys61: return 36;
+                case KeyboardSize.Keys76: return 45;
+                default: return 52;
+            }
+        }
+
+        /// <summary>Calibra con dos puntos en coordenadas de mundo. Con detectSize adivina el número de teclas.</summary>
+        public void CalibrateWorld(Vector3 lowestKeyFront, Vector3 highestKeyFront, bool detectSize)
+        {
+            if (detectSize)
+            {
+                float span = Vector3.ProjectOnPlane(highestKeyFront - lowestKeyFront, Vector3.up).magnitude;
+                var guess = GuessSize(span);
+                if (guess != size) { size = guess; ApplySize(); }
+            }
+            CalibrateWorld(lowestKeyFront, highestKeyFront);
         }
 
         /// <summary>Calibra con dos puntos en coordenadas de mundo.</summary>

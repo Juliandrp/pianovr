@@ -89,7 +89,7 @@ namespace PianoVR.Piano
                     if (n.Start > now + ahead) break;
                     if (n.End < now - 0.5f) continue;
                     var res = player.ResultOf(i);
-                    if (res == SongPlayer.NoteResult.Pending && player.IsActiveHand(n.Hand) && n.Start >= now - 0.5f)
+                    if (res == SongPlayer.NoteResult.Pending && player.IsPlayable(n) && n.Start >= now - 0.5f)
                         _expected[n.Pitch] = true;
                     if (res == SongPlayer.NoteResult.Hit && n.Start <= now + ahead && n.End >= now)
                         _sounding[n.Pitch] = true;

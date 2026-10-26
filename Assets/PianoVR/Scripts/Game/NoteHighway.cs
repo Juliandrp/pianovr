@@ -12,6 +12,7 @@ namespace PianoVR.Game
     public class NoteHighway : MonoBehaviour
     {
         [SerializeField] SongPlayer player;
+        [SerializeField] ScoreSystem score;
         [SerializeField] PianoLayout layout;
         [Tooltip("Material sin iluminación (URP Unlit). El menú PianoVR > Crear escena lo genera.")]
         [SerializeField] Material noteMaterial;
@@ -28,6 +29,10 @@ namespace PianoVR.Game
         public Color inactiveHand = new Color(0.55f, 0.55f, 0.6f, 0.5f);
         public Color hitColor = new Color(1f, 0.92f, 0.35f);
         public Color missedColor = new Color(0.75f, 0.2f, 0.2f);
+        [Tooltip("Notas de frase estrella.")]
+        public Color starNote = new Color(0.85f, 0.97f, 1f);
+        [Tooltip("Todas tus notas mientras el Modo Estrella está activo.")]
+        public Color starActive = new Color(0.45f, 0.95f, 1f);
 
         readonly List<Renderer> _pool = new List<Renderer>();
         MaterialPropertyBlock _mpb;
@@ -40,6 +45,7 @@ namespace PianoVR.Game
         {
             if (player == null) player = FindFirstObjectByType<SongPlayer>();
             if (layout == null) layout = FindFirstObjectByType<PianoLayout>();
+            if (score == null) score = FindFirstObjectByType<ScoreSystem>();
             _mpb = new MaterialPropertyBlock();
             player.SongLoaded += OnSongLoaded;
             if (player.Song != null) OnSongLoaded();
@@ -99,6 +105,8 @@ namespace PianoVR.Game
             int used = 0;
             bool show = layout.IsCalibrated && player.Song != null;
             _landingLine.gameObject.SetActive(layout.IsCalibrated);
+            bool star = score != null && score.StarActive;
+            SetColor(_landingLine.GetComponent<Renderer>(), star ? starActive : new Color(1f, 1f, 1f, 0.6f));
 
             if (layout.IsCalibrated)
             {
@@ -144,12 +152,14 @@ namespace PianoVR.Game
 
         Color ColorFor(int index, SongNote n)
         {
-            if (!player.IsActiveHand(n.Hand)) return inactiveHand;
+            if (!player.IsPlayable(n)) return inactiveHand;
             switch (player.ResultOf(index))
             {
-                case SongPlayer.NoteResult.Hit: return hitColor;
+                case SongPlayer.NoteResult.Hit: return score != null && score.StarActive ? starActive : hitColor;
                 case SongPlayer.NoteResult.Missed: return missedColor;
                 default:
+                    if (score != null && score.StarActive) return starActive;
+                    if (n.Star) return Color.Lerp(starNote, starActive, Mathf.PingPong(Time.time * 2f, 1f) * 0.5f);
                     Color c = n.Hand == Hand.Left ? leftHand : rightHand;
                     return PianoLayout.IsBlack(n.Pitch) ? c * 0.75f + new Color(0, 0, 0, 0.25f) : c;
             }

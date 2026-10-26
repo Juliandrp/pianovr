@@ -1,119 +1,148 @@
 # PianoVR
 
-App de realidad mixta para **Meta Quest 3** que enseña a tocar piano sobre tu **piano real**: con passthrough ves tu teclado y encima caen las notas en 3D, alineadas con cada tecla. Conectas un teclado MIDI por USB-C y la app sabe qué tocaste.
+Aprende piano jugando, **al estilo Guitar Hero**, en realidad mixta con las **Meta Quest 3**. Ves tu piano real (o uno virtual sobre una mesa) y encima caen las notas en 3D, alineadas con cada tecla. Ganas puntos, rachas, multiplicadores y Modo Estrella; si fallas mucho en modo concierto, el público te abuchea.
 
-> Estado: **v0.1, base jugable**. Calibración, notas que caen, resaltado de teclas, evaluación de aciertos, modo espera, práctica por mano y 3 canciones de ejemplo.
+> Estado: **v0.2**. Todo el código está escrito, pero todavía no se ha compilado en Unity ni probado en las gafas. Si algo falla al abrirlo, abre un issue con el mensaje de la consola.
+
+## Qué tiene
+
+**Juego estilo Guitar Hero**
+- Puntaje por precisión: **¡Perfecto!** (±50 ms), **¡Genial!** (±100 ms), **Bien** (±180 ms).
+- **Racha y multiplicador**: x2, x3 y x4 cada 10 notas seguidas.
+- **Medidor de público**: sube al acertar y baja al fallar. En modo concierto, si llega a cero, pierdes la canción.
+- **Modo Estrella**: las frases estrella brillan. Complétalas sin fallar y se carga la barra. Con 50 % o más, **levanta ambas manos sobre la cabeza** (o grip, o el botón ¡ESTRELLA!) para duplicar los puntos.
+- **4 dificultades**: Fácil (solo melodía), Medio (mano derecha), Difícil (ambas manos, izquierda simplificada) y Experto (todo).
+- **Resultados** de 1 a 5 estrellas, desglose y **récord por canción y dificultad**.
+- **Modo práctica**: la canción espera cada nota y no se pierde (no guarda récords).
+
+**Tres formas de tocar**
+
+| Modo | Para quién | Cómo detecta las notas |
+|---|---|---|
+| **Manos (piano real)** · por defecto | Teclados sin USB | Seguimiento de manos: la punta del dedo hunde la tecla |
+| **Teclado MIDI** | Teclados con USB "to host" o MIDI OUT + adaptador | Cable USB-C a las gafas (lo más preciso). Se activa solo al conectarlo |
+| **Manos (mesa)** | Sin piano | Piano virtual de 25 o 37 teclas sobre cualquier mesa, con sonido |
+
+**Sonido**: sintetizador propio. Las notas que no te tocan a ti suenan como acompañamiento; en la mesa también suenan tus teclas; al fallar suena un "clank", como en Guitar Hero.
+
+**Tamaño del teclado automático**: al calibrar, la app mide la distancia entre la tecla más grave y la más aguda y deduce si tu teclado es de 25, 37, 49, 61, 76 u 88 teclas. Las canciones se acomodan por octavas para caber en tu teclado.
 
 ## Cómo funciona
 
 ```
-Teclado MIDI ──USB-C──▶ Quest 3 (Android MIDI API) ──▶ MidiBridge.java ──▶ MidiInputHub
-                                                                              │
-Archivo .mid ──▶ MidiFile (parser) ──▶ SongPlayer (reloj + evaluación) ◀─────┘
-                                            │
-                PianoLayout (calibración) ──┼──▶ NoteHighway   (barras que caen)
-                                            └──▶ KeyHighlighter (azul / verde / rojo sobre cada tecla)
+Teclado MIDI ──USB-C──▶ MidiBridge.java ─┐
+Dedos (XR Hands) ──▶ HandKeyPresser ─────┼──▶ MidiInputHub ──▶ SongPlayer (reloj, aciertos, fallos)
+Teclado del PC ──▶ EditorKeyboardInput ──┘                          │
+                                                                    ├──▶ ScoreSystem (puntos, racha, público, estrella)
+Archivo .mid ──▶ MidiFile ──▶ SongArranger (dificultad, octavas) ───┘        │
+                                                                             ├──▶ GameHud / FeedbackFx (pantalla)
+PianoLayout (calibración) ──▶ NoteHighway · KeyHighlighter · VirtualKeyboard └──▶ GameAudio ──▶ PianoSynth
 ```
 
 | Carpeta | Qué hay |
 |---|---|
-| `Assets/PianoVR/Scripts/Midi` | Lector de archivos MIDI, entrada MIDI de Android y simulador con el teclado del PC |
-| `Assets/PianoVR/Scripts/Piano` | Geometría del piano, calibración con el control y resaltado de teclas |
-| `Assets/PianoVR/Scripts/Game` | Reloj de la canción, notas que caen y controlador general (mandos + panel) |
-| `Assets/PianoVR/Scripts/Editor` | Menú **PianoVR > Agregar PianoVR a la escena** |
+| `Scripts/Midi` | Lector de MIDI, arreglos por dificultad, entrada MIDI de Android, simulador con teclado del PC |
+| `Scripts/Hands` | Puntas de los dedos (XR Hands) y detección de teclas presionadas |
+| `Scripts/Piano` | Geometría y calibración del piano, resaltado de teclas, piano virtual |
+| `Scripts/Game` | Reloj de la canción, puntaje estilo Guitar Hero, notas que caen, controlador general |
+| `Scripts/Audio` | Sintetizador y mezcla del juego |
+| `Scripts/UI` | Panel de puntaje, efectos, menú de botones que se tocan con el dedo |
+| `Scripts/Editor` | Menú **PianoVR > Agregar PianoVR a la escena** |
 | `Assets/Plugins/Android/PianoVR` | `MidiBridge.java`, puente con `android.media.midi` |
-| `Assets/PianoVR/Resources/PianoVR/Songs` | Canciones de ejemplo (archivos `.mid` con extensión `.bytes`) |
-
-El código no depende de ningún SDK concreto: usa la API XR estándar de Unity (`UnityEngine.XR`), así que funciona con OpenXR o con el Meta XR SDK.
+| `Resources/PianoVR/Songs` | Canciones de ejemplo (archivos `.mid` con extensión `.bytes`) |
 
 ## Requisitos
 
-- **Unity 6 (LTS)** con el módulo **Android Build Support** (incluye OpenJDK, SDK y NDK). Se instala desde Unity Hub.
-- Quest 3 en **modo desarrollador**.
-- Un **teclado MIDI USB** (casi todos los pianos digitales modernos tienen puerto USB-B "to host") y un cable **USB-B a USB-C**. Si tu teclado es USB-A, un adaptador OTG USB-C.
+- **Unity 6 (LTS)** con **Android Build Support** (incluye OpenJDK, SDK y NDK), desde Unity Hub.
+- Quest 3 en **modo desarrollador**, con el **seguimiento de manos activado** (Configuración → Movimiento → Seguimiento de manos).
+- Paquete **XR Hands** (`com.unity.xr.hands`). La plantilla Mixed Reality ya lo trae; si no, instálalo desde Package Manager. Sin él, la app funciona solo con teclado MIDI.
+- Opcional: teclado MIDI USB y cable USB-B a USB-C.
 
 ## Montar el proyecto
 
-1. En Unity Hub: **New project → plantilla "Mixed Reality"** → nombre `PianoVR`. La plantilla ya trae OpenXR, el soporte de Meta Quest y el passthrough configurados.
-2. Trae este código dentro de la carpeta del proyecto (con Unity cerrado):
+1. En Unity Hub: **New project → plantilla "Mixed Reality"** → nombre `PianoVR`.
+2. Con Unity cerrado, trae este código dentro de la carpeta del proyecto:
    ```bash
    cd ruta/a/PianoVR
    git init
-   git remote add origin https://github.com/USUARIO/REPO.git
+   git remote add origin https://github.com/Juliandrp/pianovr.git
    git pull origin main
    ```
-3. Abre el proyecto. En la escena de ejemplo de la plantilla usa el menú **PianoVR → Agregar PianoVR a la escena**. Arma todo y crea los materiales.
-4. Si quieres versionar el proyecto completo: `git add . && git commit -m "Proyecto Unity" && git push origin main` (el `.gitignore` ya excluye `Library/` y las compilaciones).
+3. Abre el proyecto y, en la escena de la plantilla, usa **PianoVR → Agregar PianoVR a la escena**. Si ya lo tenías de la versión anterior, te ofrece reemplazarlo.
+4. Para versionar todo: `git add . && git commit -m "Proyecto Unity" && git push origin main`.
 
 ## Probar en el PC (sin gafas)
 
-Dale **Play** en el editor. Aparece un piano virtual frente a la cámara y tocas con el teclado del PC:
+Dale **Play**: aparece un piano frente a la cámara.
 
 | Tecla | Acción |
 |---|---|
-| `A W S E D F T G Y H U J K O L P ;` | Do, Do#, Re, Re#, Mi… (como en los DAW) |
-| `Z` / `X` | bajar / subir una octava |
-| `Espacio` | play / pausa |
-| `Retroceso` | reiniciar |
-| `1` | cambiar mano (ambas / derecha / izquierda) |
-| `2` | modo espera on/off |
+| `A W S E D F T G Y H U J K O L P ;` | Do, Do#, Re, Re#, Mi… · `Z` / `X` bajan / suben octava |
+| `Espacio` | tocar / pausa |
+| `Retroceso` | otra vez |
+| `1` | mano (ambas / derecha / izquierda) |
+| `2` | práctica / concierto |
 | `3` / `4` | menos / más velocidad |
 | `5` / `6` | canción anterior / siguiente |
+| `7` | dificultad |
+| `8` | forma de tocar (MIDI / manos / mesa) |
+| `9` | activar Modo Estrella |
 | `←` / `→` | retroceder / avanzar 5 s |
-| `Enter` | recolocar el piano virtual frente a la cámara |
+| `Enter` | recolocar el piano frente a la cámara |
 
 ## Compilar para las Quest 3
 
 1. **File → Build Profiles → Meta Quest** (o Android) → **Switch Platform**.
-2. Conecta las gafas por USB, acepta la depuración USB en el visor.
+2. Conecta las gafas por USB y acepta la depuración en el visor.
 3. **Build And Run**.
 
-## Usarlo en las gafas
+## Jugar
 
-1. Conecta el teclado MIDI al puerto USB-C de las Quest. El panel muestra `Conectado: <nombre del teclado>`.
-2. **Calibración** (la primera vez arranca sola): con la punta del **control derecho** toca el **borde frontal de la tecla más grave** y aprieta el gatillo; luego el de la **más aguda**. Queda guardada. Si mueves el piano, recalibra con **Y**.
-3. Toca.
+1. **Calibrar** (la primera vez arranca sola). Marca el borde frontal de la tecla más grave y luego el de la más aguda:
+   - **con las manos**: deja la punta del índice derecho quieta ~1,5 s en cada punto;
+   - **con el control**: toca con la punta y aprieta el gatillo.
+
+   En modo mesa marcas dónde quieres los extremos del piano virtual.
+2. En el **menú de la izquierda del piano** (se toca con el dedo): elige canción, dificultad, modo y dale **TOCAR**.
 
 | Control | Acción |
 |---|---|
-| **A** | play / pausa |
-| **B** | reiniciar (o cancelar calibración) |
-| Stick derecho ↑ ↓ | velocidad |
-| Stick derecho ← → | retroceder / avanzar 5 s |
-| **X** | modo espera on/off |
+| **A** | tocar / pausa |
+| **B** | otra vez (o cancelar calibración) |
+| **X** | práctica / concierto |
 | **Y** | recalibrar |
-| Stick izquierdo ← → | cambiar canción |
-| Stick izquierdo ↑ ↓ | cambiar mano |
+| **Grip** (cualquiera) | Modo Estrella |
+| Stick derecho ↑ ↓ / ← → | velocidad / mover en la canción |
+| Stick izquierdo ← → / ↑ ↓ | canción / dificultad |
 
-**Colores:** barras azules = mano derecha, verdes = mano izquierda, grises = la mano que no estás practicando. Sobre las teclas: azul = tócala ya, verde = bien, rojo = equivocada.
+**Colores**: azul = mano derecha, verde = mano izquierda, blanco brillante = frase estrella, gris = suena sola. Sobre las teclas: azul = tócala ya, verde = bien, rojo = equivocada.
 
-El tamaño del teclado se elige en el objeto **Piano** (componente `PianoLayout`): 49, 61 (por defecto), 76 u 88 teclas.
+**Consejos para tocar con las manos**: buena luz, toca con la punta de los dedos y levántalos entre nota y nota. El seguimiento de manos tiene un margen de error de alrededor de un centímetro, así que funciona mejor en Fácil y Medio. Las notas equivocadas por ruido no rompen la racha en este modo.
 
 ## Agregar tus canciones
 
-**Dentro del proyecto:** copia tu archivo `.mid` a `Assets/PianoVR/Resources/PianoVR/Songs/` y cámbiale la extensión a `.bytes`.
+**Dentro del proyecto:** copia el `.mid` a `Assets/PianoVR/Resources/PianoVR/Songs/` y cámbiale la extensión a `.bytes`.
 
-**Sin recompilar:** cópialo directo al visor con adb:
+**Sin recompilar:**
 
 ```bash
 adb push "mi cancion.mid" /sdcard/Android/data/<id.del.paquete>/files/Songs/
 ```
 
-El id del paquete está en **Project Settings → Player → Android → Package Name**. La app lista la carpeta al arrancar.
+El id del paquete está en **Project Settings → Player → Android → Package Name**.
 
-Si el archivo trae **dos pistas** con notas, la primera se toma como mano derecha y la segunda como izquierda; si no, todo lo que está por debajo del Do central se asigna a la izquierda. Las canciones de ejemplo (escala de Do, Estrellita e Himno de la Alegría) son de dominio público.
+Funcionan mejor los MIDI **de piano solo con dos pistas** (mano derecha y mano izquierda). Si el archivo tiene una sola pista, lo que queda por debajo del Do central se asigna a la izquierda. Las canciones de ejemplo son de dominio público.
 
 ## Hoja de ruta
 
-- [ ] Teclados MIDI por **Bluetooth** (BLE MIDI)
-- [ ] Modo **sin teclado MIDI**: detectar las pulsaciones con el seguimiento de manos
-- [ ] **Anclas espaciales** para que la calibración sobreviva aunque cambie el origen del guardian
-- [ ] Sonido propio para teclados sin parlante
-- [ ] Menú en realidad mixta (selector de canciones, ajustes)
-- [ ] Partitura sobre el atril y estadísticas por sesión
+- [ ] Detectar notas con el **micrófono** de las gafas (pianos sin USB, más preciso que las manos)
+- [ ] Teclados MIDI por **Bluetooth**
+- [ ] **Anclas espaciales** para que la calibración sobreviva a cambios de guardian
+- [ ] Partitura sobre el atril y estadísticas de progreso
 
 ## Notas técnicas
 
-- El parser MIDI soporta SMF formato 0 y 1, running status y cambios de tempo. Los archivos con división SMPTE (raros) no están soportados.
-- `MidiBridge.java` abre cualquier dispositivo MIDI con puerto de salida, también los que se conectan después de abrir la app, y descarta mensajes de reloj y sysex.
-- En modo espera la canción se detiene en cada nota hasta que la toques; en modo libre las notas que pasan sin tocarse cuentan como fallo.
+- El parser MIDI soporta SMF formato 0 y 1, running status y cambios de tempo (no división SMPTE).
+- `PianoVR.asmdef` define `PIANOVR_XR_HANDS` solo si está instalado `com.unity.xr.hands`; sin el paquete compila igual.
+- Una tecla se cuenta presionada cuando la punta del dedo **baja y cruza** la superficie (con histéresis), para no disparar notas al deslizar la mano apoyada.
+- El récord solo se guarda en modo concierto a velocidad 100 % o más.

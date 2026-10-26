@@ -8,8 +8,10 @@ namespace PianoVR.Game
     public enum PracticeHand { Both, Right, Left }
 
     /// <summary>
-    /// Reloj de la canción y evaluación de lo que toca el usuario: aciertos, fallos y notas equivocadas.
-    /// En "modo espera" la canción se detiene en cada nota hasta que la toques (ideal para aprender).
+    /// Reloj de la canción y evaluación de lo que toca el usuario.
+    /// - Modo concierto (por defecto): la canción avanza sola; lo que no tocas a tiempo es fallo.
+    /// - Modo práctica (waitMode): la canción se detiene en cada nota hasta que la toques.
+    /// El puntaje estilo Guitar Hero lo calcula <see cref="ScoreSystem"/> escuchando estos eventos.
     /// </summary>
     public class SongPlayer : MonoBehaviour
     {
@@ -17,9 +19,10 @@ namespace PianoVR.Game
 
         [SerializeField] MidiInputHub hub;
 
-        [Header("Práctica")]
+        [Header("Juego")]
         [Range(0.25f, 1.5f)] public float speed = 1f;
-        public bool waitMode = true;
+        [Tooltip("Modo práctica: la canción espera a que toques cada nota.")]
+        public bool waitMode;
         public PracticeHand practiceHand = PracticeHand.Both;
         [Tooltip("Segundos de cuenta regresiva antes de la primera nota.")]
         public float leadIn = 3f;
@@ -31,12 +34,11 @@ namespace PianoVR.Game
         public bool IsPlaying { get; private set; }
         public bool IsWaiting { get; private set; }
         public bool IsFinished { get; private set; }
+        public bool IsFailed { get; private set; }
 
         public int Hits { get; private set; }
         public int Misses { get; private set; }
         public int WrongNotes { get; private set; }
-        public int Streak { get; private set; }
-        public int BestStreak { get; private set; }
 
         public float Accuracy
         {
@@ -47,14 +49,20 @@ namespace PianoVR.Game
             }
         }
 
-        public event Action<int> NoteHit;       // índice de la nota
-        public event Action<int> NoteMissed;    // índice de la nota
-        public event Action<int> WrongNote;     // tono tocado
+        /// <summary>(índice de nota, error de tiempo en segundos reales: negativo = antes, positivo = tarde)</summary>
+        public event Action<int, float> NoteHit;
+        public event Action<int> NoteMissed;
+        /// <summary>Tono tocado que no correspondía a ninguna nota.</summary>
+        public event Action<int> WrongNote;
+        /// <summary>El reloj llegó al inicio de esta nota (para el acompañamiento).</summary>
+        public event Action<int> NoteStarted;
         public event Action SongLoaded;
+        public event Action Restarted;
         public event Action Finished;
 
         NoteResult[] _results = Array.Empty<NoteResult>();
-        int _cursor; // primera nota que aún no ha terminado de evaluarse
+        int _cursor;      // primera nota que aún no se ha evaluado
+        int _startCursor; // primera nota cuyo inicio aún no ha llegado
 
         public NoteResult ResultOf(int index) => _results[index];
         public IReadOnlyList<SongNote> Notes => Song?.Notes;
@@ -70,25 +78,31 @@ namespace PianoVR.Game
             if (hub != null) hub.NoteOn -= OnNoteOn;
         }
 
-        public void Load(Song song)
+        public void Load(Song song, bool autoPlay = false)
         {
             Song = song;
             _results = new NoteResult[song.Notes.Count];
-            Restart();
-            IsPlaying = false;
+            ResetState();
+            IsPlaying = autoPlay;
             SongLoaded?.Invoke();
         }
 
         public void Restart()
         {
             if (Song == null) return;
+            ResetState();
+            IsPlaying = true;
+            Restarted?.Invoke();
+        }
+
+        void ResetState()
+        {
             Array.Clear(_results, 0, _results.Length);
             _cursor = 0;
+            _startCursor = 0;
             Time = -leadIn;
-            Hits = Misses = WrongNotes = Streak = BestStreak = 0;
-            IsFinished = false;
-            IsWaiting = false;
-            IsPlaying = true;
+            Hits = Misses = WrongNotes = 0;
+            IsFinished = IsFailed = IsWaiting = false;
         }
 
         public void Pause() => IsPlaying = false;
@@ -96,8 +110,16 @@ namespace PianoVR.Game
         public void TogglePause()
         {
             if (Song == null) return;
-            if (IsFinished) { Restart(); return; }
+            if (IsFinished || IsFailed) { Restart(); return; }
             IsPlaying = !IsPlaying;
+        }
+
+        /// <summary>Lo llama ScoreSystem cuando se acaba la energía.</summary>
+        public void Fail()
+        {
+            if (IsFinished || IsFailed) return;
+            IsFailed = true;
+            IsPlaying = false;
         }
 
         /// <summary>Retrocede/avanza en la canción (segundos de canción).</summary>
@@ -105,10 +127,10 @@ namespace PianoVR.Game
         {
             if (Song == null) return;
             Time = Mathf.Clamp(seconds, -leadIn, Song.Length);
-            // Todo lo que queda después del nuevo tiempo vuelve a quedar pendiente.
             for (int i = 0; i < _results.Length; i++)
                 if (Song.Notes[i].Start >= Time) _results[i] = NoteResult.Pending;
             _cursor = LowerBound(Time - 1f);
+            _startCursor = LowerBound(Time);
             IsFinished = false;
         }
 
@@ -117,23 +139,25 @@ namespace PianoVR.Game
             (practiceHand == PracticeHand.Right && hand == Hand.Right) ||
             (practiceHand == PracticeHand.Left && hand == Hand.Left);
 
+        /// <summary>Si el jugador tiene que tocar esta nota (según dificultad y mano elegida).</summary>
+        public bool IsPlayable(SongNote n) => n.Playable && IsActiveHand(n.Hand);
+
         float WindowSongSeconds => hitWindow * speed;
 
         void Update()
         {
-            if (Song == null || !IsPlaying || IsFinished) return;
+            if (Song == null || !IsPlaying || IsFinished || IsFailed) return;
 
             float next = Time + UnityEngine.Time.deltaTime * speed;
             var notes = Song.Notes;
             IsWaiting = false;
 
-            // Avanza el cursor y resuelve notas que ya pasaron.
             for (int i = _cursor; i < notes.Count && notes[i].Start <= next + WindowSongSeconds; i++)
             {
                 var n = notes[i];
                 if (_results[i] != NoteResult.Pending) continue;
 
-                if (!IsActiveHand(n.Hand))
+                if (!IsPlayable(n))
                 {
                     if (n.Start <= next) _results[i] = NoteResult.Auto;
                     continue;
@@ -141,7 +165,6 @@ namespace PianoVR.Game
 
                 if (waitMode)
                 {
-                    // Detiene el reloj en la primera nota pendiente hasta que la toquen.
                     if (n.Start <= next)
                     {
                         next = Mathf.Max(Time, n.Start);
@@ -153,7 +176,6 @@ namespace PianoVR.Game
                 {
                     _results[i] = NoteResult.Missed;
                     Misses++;
-                    Streak = 0;
                     NoteMissed?.Invoke(i);
                 }
             }
@@ -161,6 +183,9 @@ namespace PianoVR.Game
             while (_cursor < notes.Count && _results[_cursor] != NoteResult.Pending) _cursor++;
 
             Time = next;
+
+            while (_startCursor < notes.Count && notes[_startCursor].Start <= Time)
+                NoteStarted?.Invoke(_startCursor++);
 
             if (Time > Song.Length + 1f && _cursor >= notes.Count)
             {
@@ -176,7 +201,6 @@ namespace PianoVR.Game
 
             var notes = Song.Notes;
             float window = WindowSongSeconds;
-            // En modo espera se acepta tocar un poco antes de que llegue la nota.
             float early = waitMode ? Mathf.Max(window, 0.35f * speed) : window;
 
             int best = -1;
@@ -184,7 +208,7 @@ namespace PianoVR.Game
             for (int i = LowerBound(Time - window); i < notes.Count && notes[i].Start <= Time + early; i++)
             {
                 var n = notes[i];
-                if (n.Pitch != pitch || _results[i] != NoteResult.Pending || !IsActiveHand(n.Hand)) continue;
+                if (n.Pitch != pitch || _results[i] != NoteResult.Pending || !IsPlayable(n)) continue;
                 float d = Mathf.Abs(n.Start - Time);
                 if (d < bestDist) { bestDist = d; best = i; }
             }
@@ -193,14 +217,13 @@ namespace PianoVR.Game
             {
                 _results[best] = NoteResult.Hit;
                 Hits++;
-                Streak++;
-                BestStreak = Mathf.Max(BestStreak, Streak);
-                NoteHit?.Invoke(best);
+                // En modo práctica el reloj espera en la nota, así que el error se mide solo si te adelantaste.
+                float error = (Time - notes[best].Start) / Mathf.Max(speed, 0.01f);
+                NoteHit?.Invoke(best, error);
             }
             else if (Time >= 0f)
             {
                 WrongNotes++;
-                Streak = 0;
                 WrongNote?.Invoke(pitch);
             }
         }

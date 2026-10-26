@@ -18,7 +18,17 @@ namespace PianoVR.Midi
         public int Channel;
         public Hand Hand;
 
+        // Lo llena SongArranger según la dificultad elegida.
+        /// <summary>Si el jugador debe tocarla. Las que no, suenan solas como acompañamiento.</summary>
+        public bool Playable = true;
+        /// <summary>Pertenece a una frase estrella (al completarla carga el Modo Estrella).</summary>
+        public bool Star;
+        /// <summary>Índice de frase (grupos de notas jugables), -1 si no es jugable.</summary>
+        public int Phrase = -1;
+
         public float End => Start + Duration;
+
+        public SongNote Clone() => (SongNote)MemberwiseClone();
     }
 
     /// <summary>Canción lista para tocar: notas ordenadas por tiempo de inicio.</summary>

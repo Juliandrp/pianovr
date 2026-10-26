@@ -1,0 +1,23 @@
+{
+    "name": "PianoVR",
+    "rootNamespace": "PianoVR",
+    "references": [
+        "Unity.InputSystem",
+        "Unity.XR.Hands"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.hands",
+            "expression": "1.0.0",
+            "define": "PIANOVR_XR_HANDS"
+        }
+    ],
+    "noEngineReferences": false
+}
