@@ -197,7 +197,7 @@ namespace PianoVR.Game
         {
             Energy = Mathf.Clamp01(Energy + delta);
             bool canFail = !noFail && !player.waitMode;
-            if (Energy <= 0f && canFail)
+            if (Energy <= 0f && canFail && !player.IsFailed)
             {
                 player.Fail();
                 BuildResults(failed: true);

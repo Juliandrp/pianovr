@@ -10,6 +10,9 @@ using UnityEngine.XR;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
+// UnityEngine.InputSystem también define InputDevice y CommonUsages: fijamos las de XR.
+using InputDevice = UnityEngine.XR.InputDevice;
+using CommonUsages = UnityEngine.XR.CommonUsages;
 
 namespace PianoVR.Game
 {
