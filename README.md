@@ -23,6 +23,20 @@ Aprende piano jugando, **al estilo Guitar Hero**, en realidad mixta con las **Me
 | **Teclado MIDI** | Teclados con USB "to host" o MIDI OUT + adaptador | Cable USB-C a las gafas (lo más preciso). Se activa solo al conectarlo |
 | **Manos (mesa)** | Sin piano | Piano virtual de 25 o 37 teclas sobre cualquier mesa, con sonido |
 
+**Memory Engine** (aprender de memoria): cada canción tiene un nivel de memoria que sube cuando la tocas completa con 90 % o más de precisión, y baja si fallas mucho. En cada nivel se retira una ayuda:
+
+| Nivel | Qué ves |
+|---|---|
+| 0 · Guía completa | Notas que caen y teclas iluminadas |
+| 1 · Menos guía | Las notas se desvanecen antes de llegar; teclas iluminadas |
+| 2 · Solo anticipo | Las notas solo se ven al aparecer arriba; sin teclas iluminadas |
+| 3 · Solo ritmo | Sin notas; la línea de llegada late cuando toca una nota |
+| 4 · De memoria | Sin ayudas; solo ves si acertaste |
+
+Si fallas, las ayudas vuelven completas unos segundos (pista). Se activa o apaga con el botón **Memoria** del menú.
+
+**Biblioteca clásica**: cientos de piezas de piano de dominio público (Bach, Beethoven, Chopin, Mozart, Schumann, Czerny, Satie, Joplin…), ordenadas por compositor y de más fácil a más difícil (Principiante, Intermedio, Avanzado). Ver [créditos y licencias](Assets/PianoVR/CREDITOS-Biblioteca.md).
+
 **Sonido**: sintetizador propio. Las notas que no te tocan a ti suenan como acompañamiento; en la mesa también suenan tus teclas; al fallar suena un "clank", como en Guitar Hero.
 
 **Tamaño del teclado automático**: al calibrar, la app mide la distancia entre la tecla más grave y la más aguda y deduce si tu teclado es de 25, 37, 49, 61, 76 u 88 teclas. Las canciones se acomodan por octavas para caber en tu teclado.
@@ -87,6 +101,8 @@ Dale **Play**: aparece un piano frente a la cámara.
 | `7` | dificultad |
 | `8` | forma de tocar (MIDI / manos / mesa) |
 | `9` | activar Modo Estrella |
+| `0` | Memory Engine on/off · `M` = cambiar el nivel de memoria a mano (para probar) |
+| `RePág` / `AvPág` | compositor anterior / siguiente |
 | `←` / `→` | retroceder / avanzar 5 s |
 | `Enter` | recolocar el piano frente a la cámara |
 
@@ -115,6 +131,8 @@ Dale **Play**: aparece un piano frente a la cámara.
 | Stick derecho ↑ ↓ / ← → | velocidad / mover en la canción |
 | Stick izquierdo ← → / ↑ ↓ | canción / dificultad |
 
+En el menú, **< Autor / Autor >** salta entre compositores de la biblioteca.
+
 **Colores**: azul = mano derecha, verde = mano izquierda, blanco brillante = frase estrella, gris = suena sola. Sobre las teclas: azul = tócala ya, verde = bien, rojo = equivocada.
 
 **Consejos para tocar con las manos**: buena luz, toca con la punta de los dedos y levántalos entre nota y nota. El seguimiento de manos tiene un margen de error de alrededor de un centímetro, así que funciona mejor en Fácil y Medio. Las notas equivocadas por ruido no rompen la racha en este modo.
@@ -132,6 +150,12 @@ adb push "mi cancion.mid" /sdcard/Android/data/<id.del.paquete>/files/Songs/
 El id del paquete está en **Project Settings → Player → Android → Package Name**.
 
 Funcionan mejor los MIDI **de piano solo con dos pistas** (mano derecha y mano izquierda). Si el archivo tiene una sola pista, lo que queda por debajo del Do central se asigna a la izquierda. Las canciones de ejemplo son de dominio público.
+
+## Biblioteca clásica: de dónde sale y licencias
+
+Las piezas vienen del [Mutopia Project](https://www.mutopiaproject.org), que publica partituras de dominio público editadas por voluntarios en LilyPond. Se convirtieron a MIDI con LilyPond y se validaron con el mismo lector MIDI de la app. Solo se incluyeron ediciones con licencia **Public Domain**, **CC BY** o **CC BY-SA**; la lista completa, con el editor de cada una, está en [`Assets/PianoVR/CREDITOS-Biblioteca.md`](Assets/PianoVR/CREDITOS-Biblioteca.md).
+
+Para uso personal no hay que hacer nada. **Si la app se publica o se vende**, hay que mostrar esos créditos dentro de la app, y las piezas CC BY-SA (los archivos MIDI) quedan bajo esa misma licencia.
 
 ## Hoja de ruta
 

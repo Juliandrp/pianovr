@@ -38,6 +38,7 @@ namespace PianoVR.Game
         MaterialPropertyBlock _mpb;
         Transform _landingLine;
         float _maxDuration;
+        Material _fadeMaterial;
         static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         static readonly int ColorId = Shader.PropertyToID("_Color");
 
@@ -47,6 +48,8 @@ namespace PianoVR.Game
             if (layout == null) layout = FindFirstObjectByType<PianoLayout>();
             if (score == null) score = FindFirstObjectByType<ScoreSystem>();
             _mpb = new MaterialPropertyBlock();
+            // Material transparente para que el Memory Engine pueda desvanecer las notas.
+            _fadeMaterial = MaterialUtil.TransparentCopy(noteMaterial);
             player.SongLoaded += OnSongLoaded;
             if (player.Song != null) OnSongLoaded();
             CreateLandingLine();
@@ -86,7 +89,8 @@ namespace PianoVR.Game
                 var r = go.GetComponent<Renderer>();
                 r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 r.receiveShadows = false;
-                if (noteMaterial) r.sharedMaterial = noteMaterial;
+                if (_fadeMaterial) r.sharedMaterial = _fadeMaterial;
+                else if (noteMaterial) r.sharedMaterial = noteMaterial;
                 _pool.Add(r);
             }
             return _pool[index];
@@ -106,7 +110,10 @@ namespace PianoVR.Game
             bool show = layout.IsCalibrated && player.Song != null;
             _landingLine.gameObject.SetActive(layout.IsCalibrated);
             bool star = score != null && score.StarActive;
-            SetColor(_landingLine.GetComponent<Renderer>(), star ? starActive : new Color(1f, 1f, 1f, 0.6f));
+            var memory = MemoryEngine.Instance;
+            float pulse = memory != null && memory.ShowRhythmPulse ? RhythmPulse() : 0f;
+            Color lineColor = star ? starActive : new Color(1f, 1f, 1f, 0.6f);
+            SetColor(_landingLine.GetComponent<Renderer>(), Color.Lerp(lineColor, new Color(1f, 0.9f, 0.4f, 1f), pulse));
 
             if (layout.IsCalibrated)
             {
@@ -114,7 +121,7 @@ namespace PianoVR.Game
                 Vector3 mid = layout.Origin + layout.Right * ((layout.WhiteKeyCount - 1) * layout.WhiteKeyWidth * 0.5f)
                               + layout.Forward * (layout.whiteKeyDepth * 0.92f);
                 _landingLine.SetPositionAndRotation(mid, layout.Rotation);
-                _landingLine.localScale = new Vector3(span, 0.002f, 0.004f);
+                _landingLine.localScale = new Vector3(span, 0.002f + 0.006f * pulse, 0.004f + 0.006f * pulse);
             }
 
             if (show)
@@ -135,6 +142,12 @@ namespace PianoVR.Game
                     bottom = Mathf.Max(bottom, 0f);
                     if (top - bottom < 0.002f) continue;
 
+                    // Memory Engine: las notas pendientes se desvanecen según tu nivel.
+                    float alpha = 1f;
+                    if (memory != null && player.ResultOf(i) == SongPlayer.NoteResult.Pending)
+                        alpha = memory.NoteAlpha(bottom / maxHeight);
+                    if (alpha < 0.02f) continue;
+
                     var r = Get(used++);
                     if (!r.gameObject.activeSelf) r.gameObject.SetActive(true);
 
@@ -142,7 +155,9 @@ namespace PianoVR.Game
                     r.transform.SetPositionAndRotation(basePos + layout.Up * ((bottom + top) * 0.5f), layout.Rotation);
                     r.transform.localScale = new Vector3(layout.KeyWidth(n.Pitch) * 0.95f, top - bottom, noteThickness);
 
-                    SetColor(r, ColorFor(i, n));
+                    Color c = ColorFor(i, n);
+                    c.a *= alpha;
+                    SetColor(r, c);
                 }
             }
 
@@ -163,6 +178,20 @@ namespace PianoVR.Game
                     Color c = n.Hand == Hand.Left ? leftHand : rightHand;
                     return PianoLayout.IsBlack(n.Pitch) ? c * 0.75f + new Color(0, 0, 0, 0.25f) : c;
             }
+        }
+
+        /// <summary>0..1: qué tan cerca está una nota que hay que tocar (para el latido del nivel "solo ritmo").</summary>
+        float RhythmPulse()
+        {
+            if (player.Song == null) return 0f;
+            var notes = player.Song.Notes;
+            float t = player.Time, window = 0.15f * player.speed, best = 0f;
+            for (int i = FirstNoteStartingAfter(t - window); i < notes.Count && notes[i].Start <= t + window; i++)
+            {
+                if (!player.IsPlayable(notes[i])) continue;
+                best = Mathf.Max(best, 1f - Mathf.Abs(notes[i].Start - t) / window);
+            }
+            return best;
         }
 
         int FirstNoteStartingAfter(float t)

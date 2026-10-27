@@ -49,6 +49,7 @@ namespace PianoVR.EditorTools
             // Juego
             var player = root.AddComponent<SongPlayer>();
             var score = root.AddComponent<ScoreSystem>();
+            var memory = root.AddComponent<MemoryEngine>();
             var highway = Child(root, "NoteHighway").AddComponent<NoteHighway>();
 
             // Sonido
@@ -84,6 +85,8 @@ namespace PianoVR.EditorTools
 
             Set(player, "hub", hub);
             Set(score, "player", player);
+            Set(memory, "player", player);
+            Set(memory, "score", score);
             Set(highway, "player", player);
             Set(highway, "score", score);
             Set(highway, "layout", layout);

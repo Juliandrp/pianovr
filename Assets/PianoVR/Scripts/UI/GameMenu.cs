@@ -18,8 +18,8 @@ namespace PianoVR.UI
         [SerializeField] Material material;
 
         public float buttonWidth = 0.11f;
-        public float buttonHeight = 0.03f;
-        public float gap = 0.008f;
+        public float buttonHeight = 0.028f;
+        public float gap = 0.006f;
         [Tooltip("Inclinación hacia atrás de la columna (grados).")]
         public float tilt = 25f;
 
@@ -173,7 +173,7 @@ namespace PianoVR.UI
             if (layout.IsCalibrated)
             {
                 Vector3 pos = layout.Origin - layout.Right * (buttonWidth * 0.5f + 0.06f)
-                              + layout.Up * 0.30f + layout.Forward * 0.02f;
+                              + layout.Up * 0.48f + layout.Forward * 0.02f;
                 _root.SetPositionAndRotation(pos, layout.Rotation * Quaternion.Euler(tilt, 0f, 0f));
             }
             else

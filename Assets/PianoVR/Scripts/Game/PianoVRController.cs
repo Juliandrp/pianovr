@@ -43,7 +43,17 @@ namespace PianoVR.Game
 
         public InputMode Mode { get; private set; } = InputMode.MidiKeyboard;
 
-        readonly List<(string name, System.Func<byte[]> load)> _library = new List<(string, System.Func<byte[]>)>();
+        /// <summary>Una canción de la biblioteca. group = compositor o "Mis canciones".</summary>
+        class SongEntry
+        {
+            public string name, group, level, license;
+            public System.Func<byte[]> load;
+        }
+
+        readonly List<SongEntry> _library = new List<SongEntry>();
+        MemoryEngine _memory;
+        const string MyGroup = "Mis canciones";
+        const string ClassicalIndex = "PianoVR/Classical/index";
         int _songIndex;
         Song _rawSong;
         int _arrangedFor = -1; // rango de teclas para el que se arregló la canción
@@ -60,6 +70,13 @@ namespace PianoVR.Game
 
         /// <summary>Carpeta del visor donde puedes copiar tus .mid con adb (ver README).</summary>
         public static string UserSongsFolder => Path.Combine(Application.persistentDataPath, "Songs");
+
+        void Awake()
+        {
+            // El Memory Engine se agrega solo si la escena es de una versión anterior.
+            _memory = FindFirstObjectByType<MemoryEngine>();
+            if (_memory == null) _memory = gameObject.AddComponent<MemoryEngine>();
+        }
 
         void Start()
         {
@@ -85,6 +102,9 @@ namespace PianoVR.Game
             if (_library.Count > 0) LoadSong(Mathf.Clamp(PlayerPrefs.GetInt(PrefSong, 0), 0, _library.Count - 1));
 
             layout.Changed += OnLayoutChanged;
+            _memory.LevelChanged += (level, up) =>
+                Flash(up ? $"¡Memoria nivel {level}: {MemoryEngine.LevelName(level)}!"
+                         : $"Memoria baja a nivel {level}: {MemoryEngine.LevelName(level)}");
 
             if (!layout.IsCalibrated)
             {
@@ -120,6 +140,10 @@ namespace PianoVR.Game
             menu.Add(row++, 0, 1, () => "OTRA VEZ", () => { player.Restart(); }, visible: () => InMenu && !player.IsFinished && !player.IsFailed);
             menu.Add(row, 0, 2, () => "< Canción", () => LoadSong(_songIndex - 1), visible: () => InMenu);
             menu.Add(row++, 1, 2, () => "Canción >", () => LoadSong(_songIndex + 1), visible: () => InMenu);
+            menu.Add(row, 0, 2, () => "< Autor", () => JumpGroup(-1), visible: () => InMenu && _library.Count > 30);
+            menu.Add(row++, 1, 2, () => "Autor >", () => JumpGroup(+1), visible: () => InMenu && _library.Count > 30);
+            menu.Add(row++, 0, 1, MemoryLabel, ToggleMemory, visible: () => InMenu,
+                highlighted: () => _memory.mode == MemoryEngine.Mode.Auto);
             menu.Add(row++, 0, 1, () => "Dificultad: " + SongArranger.Label(score.difficulty), CycleDifficulty, visible: () => InMenu);
             menu.Add(row++, 0, 1, () => player.waitMode ? "Modo: Práctica" : "Modo: Concierto", ToggleWait, visible: () => InMenu);
             menu.Add(row, 0, 2, () => "Vel -", () => ChangeSpeed(-0.1f), visible: () => InMenu);
@@ -135,12 +159,15 @@ namespace PianoVR.Game
         void BuildLibrary()
         {
             _library.Clear();
+
+            // 1) Ejemplos y tus canciones dentro del proyecto.
             foreach (var asset in Resources.LoadAll<TextAsset>(resourcesFolder))
             {
                 var a = asset;
-                _library.Add((a.name, () => a.bytes));
+                _library.Add(new SongEntry { name = a.name, group = MyGroup, load = () => a.bytes });
             }
 
+            // 2) Tus canciones copiadas al visor con adb.
             try
             {
                 Directory.CreateDirectory(UserSongsFolder);
@@ -149,7 +176,7 @@ namespace PianoVR.Game
                     string ext = Path.GetExtension(file).ToLowerInvariant();
                     if (ext != ".mid" && ext != ".midi") continue;
                     string f = file;
-                    _library.Add((Path.GetFileNameWithoutExtension(f), () => File.ReadAllBytes(f)));
+                    _library.Add(new SongEntry { name = Path.GetFileNameWithoutExtension(f), group = MyGroup, load = () => File.ReadAllBytes(f) });
                 }
             }
             catch (System.Exception e)
@@ -157,8 +184,44 @@ namespace PianoVR.Game
                 Debug.LogWarning("[PianoVR] No se pudo leer la carpeta de canciones: " + e.Message);
             }
 
-            _library.Sort((a, b) => string.Compare(a.name, b.name, System.StringComparison.OrdinalIgnoreCase));
+            // 3) Biblioteca clásica (Mutopia). Se carga a pedido para no gastar memoria.
+            var index = Resources.Load<TextAsset>(ClassicalIndex);
+            if (index != null)
+            {
+                foreach (var line in index.text.Split('\n'))
+                {
+                    var f = line.TrimEnd('\r').Split('\t');
+                    if (f.Length < 5 || f[0].StartsWith("#")) continue;
+                    string path = f[0];
+                    _library.Add(new SongEntry
+                    {
+                        name = f[1] + " - " + f[2], group = f[1], level = f[3], license = f[4],
+                        load = () =>
+                        {
+                            var asset = Resources.Load<TextAsset>(path);
+                            if (asset == null) throw new System.IO.FileNotFoundException(path);
+                            var bytes = asset.bytes;
+                            Resources.UnloadAsset(asset);
+                            return bytes;
+                        }
+                    });
+                }
+            }
+
+            // Mis canciones primero; luego por compositor, de más fácil a más difícil.
+            _library.Sort((a, b) =>
+            {
+                bool am = a.group == MyGroup, bm = b.group == MyGroup;
+                if (am != bm) return am ? -1 : 1;
+                int g = string.Compare(a.group, b.group, System.StringComparison.OrdinalIgnoreCase);
+                if (g != 0) return g;
+                int l = string.CompareOrdinal(LevelOrder(a.level), LevelOrder(b.level));
+                return l != 0 ? l : string.Compare(a.name, b.name, System.StringComparison.OrdinalIgnoreCase);
+            });
         }
+
+        static string LevelOrder(string level) =>
+            level == "Principiante" ? "1" : level == "Intermedio" ? "2" : level == "Avanzado" ? "3" : "0";
 
         void LoadSong(int index)
         {
@@ -171,12 +234,45 @@ namespace PianoVR.Game
                 _rawSong = MidiFile.Parse(entry.load(), entry.name);
                 Rearrange();
                 int hs = ScoreSystem.HighScore(_rawSong.Name, score.difficulty);
-                Flash(hs > 0 ? $"{_rawSong.Name} · Récord {hs:N0}" : _rawSong.Name);
+                string info = string.IsNullOrEmpty(entry.level) ? "" : $"\n<size=40>{entry.level} · {_songIndex + 1}/{_library.Count}</size>";
+                Flash((hs > 0 ? $"{_rawSong.Name} · Récord {hs:N0}" : _rawSong.Name) + info);
             }
             catch (System.Exception e)
             {
                 Flash($"No se pudo abrir {entry.name}: {e.Message}");
             }
+        }
+
+        /// <summary>Salta a la primera canción del compositor anterior/siguiente.</summary>
+        void JumpGroup(int dir)
+        {
+            if (_library.Count == 0) return;
+            string current = _library[_songIndex].group;
+            int i = _songIndex;
+            for (int step = 0; step < _library.Count; step++)
+            {
+                i = (i + dir + _library.Count) % _library.Count;
+                if (_library[i].group == current) continue;
+                // Al ir hacia atrás, retrocede hasta la primera canción de ese grupo.
+                string target = _library[i].group;
+                while (dir < 0 && _library[(i - 1 + _library.Count) % _library.Count].group == target && i != 0) i--;
+                LoadSong(i);
+                return;
+            }
+        }
+
+        string MemoryLabel()
+        {
+            if (_memory.mode == MemoryEngine.Mode.Off) return "Memoria: apagada";
+            return $"Memoria: nivel {_memory.StoredLevel}";
+        }
+
+        void ToggleMemory()
+        {
+            _memory.ToggleMode();
+            Flash(_memory.mode == MemoryEngine.Mode.Off
+                ? "Memoria apagada: siempre verás todas las ayudas"
+                : $"Memoria activa · nivel {_memory.StoredLevel}: {MemoryEngine.LevelName(_memory.StoredLevel)}\n<size=40>Toca bien la canción completa (90 %) para subir de nivel</size>");
         }
 
         /// <summary>Vuelve a preparar la canción con la dificultad y el tamaño de teclado actuales.</summary>
@@ -365,6 +461,10 @@ namespace PianoVR.Game
             if (k.digit7Key.wasPressedThisFrame) CycleDifficulty();
             if (k.digit8Key.wasPressedThisFrame) CycleMode();
             if (k.digit9Key.wasPressedThisFrame) score.ActivateStar();
+            if (k.digit0Key.wasPressedThisFrame) ToggleMemory();
+            if (k.mKey.wasPressedThisFrame) _memory.SetLevel((_memory.StoredLevel + 1) % (MemoryEngine.MaxLevel + 1));
+            if (k.pageUpKey.wasPressedThisFrame) JumpGroup(-1);
+            if (k.pageDownKey.wasPressedThisFrame) JumpGroup(+1);
             if (k.leftArrowKey.wasPressedThisFrame) player.Seek(player.Time - 5f);
             if (k.rightArrowKey.wasPressedThisFrame) player.Seek(player.Time + 5f);
             if (k.enterKey.wasPressedThisFrame) layout.PlaceInFrontOf(_head);
@@ -380,6 +480,10 @@ namespace PianoVR.Game
             if (Input.GetKeyDown(KeyCode.Alpha7)) CycleDifficulty();
             if (Input.GetKeyDown(KeyCode.Alpha8)) CycleMode();
             if (Input.GetKeyDown(KeyCode.Alpha9)) score.ActivateStar();
+            if (Input.GetKeyDown(KeyCode.Alpha0)) ToggleMemory();
+            if (Input.GetKeyDown(KeyCode.M)) _memory.SetLevel((_memory.StoredLevel + 1) % (MemoryEngine.MaxLevel + 1));
+            if (Input.GetKeyDown(KeyCode.PageUp)) JumpGroup(-1);
+            if (Input.GetKeyDown(KeyCode.PageDown)) JumpGroup(+1);
             if (Input.GetKeyDown(KeyCode.LeftArrow)) player.Seek(player.Time - 5f);
             if (Input.GetKeyDown(KeyCode.RightArrow)) player.Seek(player.Time + 5f);
             if (Input.GetKeyDown(KeyCode.Return)) layout.PlaceInFrontOf(_head);

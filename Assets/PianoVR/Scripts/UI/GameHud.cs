@@ -184,7 +184,10 @@ namespace PianoVR.UI
             Place();
 
             bool hasSong = player.Song != null;
-            _title.text = hasSong ? $"{player.Song.Name}  ·  {SongArranger.Label(score.difficulty)}" : "";
+            var mem = PianoVR.Game.MemoryEngine.Instance;
+            string memory = mem != null && mem.mode == PianoVR.Game.MemoryEngine.Mode.Auto
+                ? $"  ·  Memoria {mem.StoredLevel}{(mem.HintActive ? " (pista)" : "")}" : "";
+            _title.text = hasSong ? $"{player.Song.Name}  ·  {SongArranger.Label(score.difficulty)}{memory}" : "";
 
             _score.text = score.Score.ToString("N0");
             _multiplier.text = "x" + score.Multiplier;
