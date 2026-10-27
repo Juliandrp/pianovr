@@ -35,7 +35,7 @@ Aprende piano jugando, **al estilo Guitar Hero**, en realidad mixta con las **Me
 
 Si fallas, las ayudas vuelven completas unos segundos (pista). Se activa o apaga con el botón **Memoria** del menú.
 
-**Biblioteca clásica**: cientos de piezas de piano de dominio público (Bach, Beethoven, Chopin, Mozart, Schumann, Czerny, Satie, Joplin…), ordenadas por compositor y de más fácil a más difícil (Principiante, Intermedio, Avanzado). Ver [créditos y licencias](Assets/PianoVR/CREDITOS-Biblioteca.md).
+**Biblioteca clásica**: 549 piezas de piano de dominio público de 57 compositores (Bach, Beethoven, Chopin, Mozart, Schumann, Czerny, Satie, Joplin…), ordenadas por compositor y de más fácil a más difícil (Principiante, Intermedio, Avanzado). Ver [créditos y licencias](Assets/PianoVR/CREDITOS-Biblioteca.md).
 
 **Sonido**: sintetizador propio. Las notas que no te tocan a ti suenan como acompañamiento; en la mesa también suenan tus teclas; al fallar suena un "clank", como en Guitar Hero.
 

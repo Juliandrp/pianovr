@@ -1,0 +1,550 @@
+# ruta	compositor	titulo	nivel	licencia
+PianoVR/Classical/Adam/Giselle-Pas-de-deux-1er-Acte	Adam	Giselle - Pas de deux (1er Acte)	Intermedio	Public Domain
+PianoVR/Classical/Albeniz/Rumores-de-la-Caleta	Albéniz	Rumores de la Caleta	Intermedio	Public Domain
+PianoVR/Classical/Alkan/Chanson-de-la-Folle-au-Bord-de-la-Mer	Alkan	Chanson de la Folle au Bord de la Mer	Intermedio	CC BY-SA
+PianoVR/Classical/Andre/Sonatine	Andre	Sonatine	Intermedio	Public Domain
+PianoVR/Classical/Anonimo/La-Native	Anónimo	La Native	Intermedio	Public Domain
+PianoVR/Classical/Anonimo/Les-Graces	Anónimo	Les Graces	Principiante	Public Domain
+PianoVR/Classical/Bach/Ach-was-soll-ich-Sunder-machen	Bach	Ach, was soll ich Sünder machen	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Air	Bach	Air	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Applicatio	Bach	Applicatio	Principiante	Public Domain
+PianoVR/Classical/Bach/Aria	Bach	Aria	Principiante	Public Domain
+PianoVR/Classical/Bach/Aria-Warum-betrubst-du-dich	Bach	Aria “Warum betrübst du dich”	Principiante	Public Domain
+PianoVR/Classical/Bach/Aus-meines-Herzens-Grunde-Chorale-1	Bach	Aus meines Herzens Grunde (Chorale 1)	Principiante	Public Domain
+PianoVR/Classical/Bach/BWV-1006a-Bourree	Bach	BWV 1006a - Bourrée	Principiante	CC BY-SA
+PianoVR/Classical/Bach/BWV-1006a-Gavotte-en-Rondeau	Bach	BWV 1006a - Gavotte en Rondeau	Principiante	CC BY-SA
+PianoVR/Classical/Bach/BWV-1006a-Gigue	Bach	BWV 1006a - Gigue	Principiante	CC BY-SA
+PianoVR/Classical/Bach/BWV-1006a-Loure	Bach	BWV 1006a - Loure	Principiante	CC BY-SA
+PianoVR/Classical/Bach/BWV-1006a-Menuet-I	Bach	BWV 1006a - Menuet I	Principiante	CC BY-SA
+PianoVR/Classical/Bach/BWV-1006a-Menuet-II	Bach	BWV 1006a - Menuet II	Principiante	CC BY-SA
+PianoVR/Classical/Bach/BWV-1006a-Prelude	Bach	BWV 1006a - Prélude	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Chorale-prelude-Wer-nur-den-lieben-Gott-lat-walten	Bach	Chorale prelude “Wer nur den lieben Gott läßt walten”	Principiante	Public Domain
+PianoVR/Classical/Bach/Chorale-setting-Gib-dich-zufrieden-und-sei-stille-in-D-minor	Bach	Chorale setting \Gib dich zufrieden und sei stille\ in D minor	Principiante	Public Domain
+PianoVR/Classical/Bach/Chorale-setting-Gib-dich-zufrieden-und-sei-stille-in-E-minor	Bach	Chorale setting \Gib dich zufrieden und sei stille\ in E minor	Principiante	Public Domain
+PianoVR/Classical/Bach/Chorale-setting-Gib-dich-zufrieden-und-sei-stille-in-F-major	Bach	Chorale setting \Gib dich zufrieden und sei stille\ in F major	Principiante	Public Domain
+PianoVR/Classical/Bach/Chromatic-Fantasy-and-Fugue-BWV-903-Fantasy	Bach	Chromatic Fantasy and Fugue, BWV 903 (Fantasy)	Intermedio	Public Domain
+PianoVR/Classical/Bach/Chromatic-Fantasy-and-Fugue-BWV-903-Fugue	Bach	Chromatic Fantasy and Fugue, BWV 903 (Fugue)	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-I	Bach	Das Wohltemperierte Clavier I, Fuga I	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-II	Bach	Das Wohltemperierte Clavier I, Fuga II	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-III	Bach	Das Wohltemperierte Clavier I, Fuga III	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-IV	Bach	Das Wohltemperierte Clavier I, Fuga IV	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-V	Bach	Das Wohltemperierte Clavier I, Fuga V	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-VI	Bach	Das Wohltemperierte Clavier I, Fuga VI	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-VIII	Bach	Das Wohltemperierte Clavier I, Fuga VIII	Principiante	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-X	Bach	Das Wohltemperierte Clavier I, Fuga X	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-XI	Bach	Das Wohltemperierte Clavier I, Fuga XI	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-XII	Bach	Das Wohltemperierte Clavier I, Fuga XII	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-XVI	Bach	Das Wohltemperierte Clavier I, Fuga XVI	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-XVII	Bach	Das Wohltemperierte Clavier I, Fuga XVII	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-XX	Bach	Das Wohltemperierte Clavier I, Fuga XX	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Fuga-XXIV	Bach	Das Wohltemperierte Clavier I, Fuga XXIV	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-24	Bach	Das Wohltemperierte Clavier I, Praeludium 24	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-I	Bach	Das Wohltemperierte Clavier I, Praeludium I	Principiante	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-II	Bach	Das Wohltemperierte Clavier I, Praeludium II	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-III	Bach	Das Wohltemperierte Clavier I, Praeludium III	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-IV	Bach	Das Wohltemperierte Clavier I, Praeludium IV	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-V	Bach	Das Wohltemperierte Clavier I, Praeludium V	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-VI	Bach	Das Wohltemperierte Clavier I, Praeludium VI	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-VIII	Bach	Das Wohltemperierte Clavier I, Praeludium VIII	Principiante	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-X	Bach	Das Wohltemperierte Clavier I, Praeludium X	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-XI	Bach	Das Wohltemperierte Clavier I, Praeludium XI	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-XII	Bach	Das Wohltemperierte Clavier I, Praeludium XII	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-XVI	Bach	Das Wohltemperierte Clavier I, Praeludium XVI	Principiante	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-XVII	Bach	Das Wohltemperierte Clavier I, Praeludium XVII	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-I-Praeludium-XX	Bach	Das Wohltemperierte Clavier I, Praeludium XX	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-II-Fuga-I	Bach	Das Wohltemperierte Clavier II, Fuga I	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-II-Fuga-II	Bach	Das Wohltemperierte Clavier II, Fuga II	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-II-Fuga-IX	Bach	Das Wohltemperierte Clavier II, Fuga IX	Avanzado	CC BY-SA
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-II-Praeludium-I	Bach	Das Wohltemperierte Clavier II, Praeludium I	Intermedio	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-II-Praeludium-II	Bach	Das Wohltemperierte Clavier II, Praeludium II	Avanzado	Public Domain
+PianoVR/Classical/Bach/Das-Wohltemperierte-Clavier-II-Praeludium-VI	Bach	Das Wohltemperierte Clavier II, Praeludium VI	Avanzado	Public Domain
+PianoVR/Classical/Bach/Die-Kunst-der-Fuge-Contrapunctus-I	Bach	Die Kunst der Fuge, Contrapunctus I	Intermedio	Public Domain
+PianoVR/Classical/Bach/Die-Kunst-der-Fuge-Contrapunctus-XII-Canon-alla-Ottava	Bach	Die Kunst der Fuge, Contrapunctus XII - Canon alla Ottava	Intermedio	Public Domain
+PianoVR/Classical/Bach/Die-Kunst-der-Fuge-Contrapunctus-XIII-Canon-alla-Duodecima	Bach	Die Kunst der Fuge, Contrapunctus XIII - Canon alla Duodecima	Intermedio	Public Domain
+PianoVR/Classical/Bach/Die-Kunst-der-Fuge-Contrapunctus-XIV-Canon-alla-Decima	Bach	Die Kunst der Fuge, Contrapunctus XIV - Canon alla Decima	Principiante	Public Domain
+PianoVR/Classical/Bach/Die-Kunst-der-Fuge-Contrapunctus-XV-Canon-per-Augmentationem	Bach	Die Kunst der Fuge, Contrapunctus XV - Canon per Augmentationem in Contrario Mot	Principiante	Public Domain
+PianoVR/Classical/Bach/Die-Kunst-der-Fuge-Contrapunctus-XVII-Fuga-a-2-Clav-rectus-i	Bach	Die Kunst der Fuge, Contrapunctus XVII - Fuga a 2 Clav. (rectus, inversus)	Avanzado	Public Domain
+PianoVR/Classical/Bach/Duetto-I	Bach	Duetto I	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Duetto-III	Bach	Duetto III	Principiante	Public Domain
+PianoVR/Classical/Bach/Duetto-IV	Bach	Duetto IV	Principiante	Public Domain
+PianoVR/Classical/Bach/English-Suite-I-Bourree-I	Bach	English Suite I: Bourree I	Intermedio	Public Domain
+PianoVR/Classical/Bach/English-Suite-I-Bourree-II	Bach	English Suite I: Bourree II	Intermedio	Public Domain
+PianoVR/Classical/Bach/English-Suite-II-Bourree-I	Bach	English Suite II: Bourree I	Intermedio	Public Domain
+PianoVR/Classical/Bach/English-Suite-II-Bourree-II	Bach	English Suite II: Bourree II	Avanzado	Public Domain
+PianoVR/Classical/Bach/English-Suite-II-Gigue	Bach	English Suite II: Gigue	Avanzado	Public Domain
+PianoVR/Classical/Bach/Ermuntre-dich-mein-schwacher-Geist	Bach	Ermuntre dich, mein schwacher Geist	Principiante	Public Domain
+PianoVR/Classical/Bach/French-Suite-no-5-in-G-major	Bach	French Suite no. 5 in G major	Intermedio	Public Domain
+PianoVR/Classical/Bach/French-Suite-no-6-in-E-major	Bach	French Suite no. 6 in E major	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Fuga-15-BWV-860	Bach	Fuga 15 - BWV 860	Intermedio	Public Domain
+PianoVR/Classical/Bach/Fugue-in-C-major	Bach	Fugue in C major	Principiante	Public Domain
+PianoVR/Classical/Bach/Goldberg-Variations-1	Bach	Goldberg Variations - 1	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-10	Bach	Goldberg Variations - 10	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-11	Bach	Goldberg Variations - 11	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-12	Bach	Goldberg Variations - 12	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-13	Bach	Goldberg Variations - 13	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-14	Bach	Goldberg Variations - 14	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-15	Bach	Goldberg Variations - 15	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-16	Bach	Goldberg Variations - 16	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-18	Bach	Goldberg Variations - 18	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-19	Bach	Goldberg Variations - 19	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-20	Bach	Goldberg Variations - 20	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-21	Bach	Goldberg Variations - 21	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-22	Bach	Goldberg Variations - 22	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-23	Bach	Goldberg Variations - 23	Avanzado	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-24	Bach	Goldberg Variations - 24	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-25	Bach	Goldberg Variations - 25	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-26	Bach	Goldberg Variations - 26	Avanzado	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-27	Bach	Goldberg Variations - 27	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-28	Bach	Goldberg Variations - 28	Avanzado	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-29	Bach	Goldberg Variations - 29	Avanzado	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-3	Bach	Goldberg Variations - 3	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-30	Bach	Goldberg Variations - 30	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-4	Bach	Goldberg Variations - 4	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-5	Bach	Goldberg Variations - 5	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-6	Bach	Goldberg Variations - 6	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-7	Bach	Goldberg Variations - 7	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-8	Bach	Goldberg Variations - 8	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-9	Bach	Goldberg Variations - 9	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Goldberg-Variations-Aria	Bach	Goldberg Variations - Aria	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Gott-wie-gross-ist-deine-Gute	Bach	Gott, wie gross ist deine Güte	Principiante	Public Domain
+PianoVR/Classical/Bach/Ich-dank-dir-lieber-Herre	Bach	Ich dank dir, lieber Herre	Principiante	Public Domain
+PianoVR/Classical/Bach/Invention-1	Bach	Invention 1	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Invention-10	Bach	Invention 10	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-11	Bach	Invention 11	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-12	Bach	Invention 12	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Invention-13	Bach	Invention 13	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-14	Bach	Invention 14	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-15	Bach	Invention 15	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-2	Bach	Invention 2	Principiante	Public Domain
+PianoVR/Classical/Bach/Invention-3	Bach	Invention 3	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-4	Bach	Invention 4	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-5	Bach	Invention 5	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-6	Bach	Invention 6	Principiante	CC BY-SA
+PianoVR/Classical/Bach/Invention-7	Bach	Invention 7	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-8	Bach	Invention 8	Intermedio	Public Domain
+PianoVR/Classical/Bach/Invention-9	Bach	Invention 9	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Keyboard-partita-in-A-minor-1	Bach	Keyboard partita in A minor (1)	Intermedio	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-A-minor-2	Bach	Keyboard partita in A minor (2)	Principiante	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-A-minor-3	Bach	Keyboard partita in A minor (3)	Intermedio	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-A-minor-4	Bach	Keyboard partita in A minor (4)	Principiante	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-A-minor-5	Bach	Keyboard partita in A minor (5)	Principiante	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-A-minor-6	Bach	Keyboard partita in A minor (6)	Principiante	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-E-minor-1	Bach	Keyboard partita in E minor (1)	Intermedio	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-E-minor-2	Bach	Keyboard partita in E minor (2)	Intermedio	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-E-minor-3	Bach	Keyboard partita in E minor (3)	Avanzado	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-E-minor-4	Bach	Keyboard partita in E minor (4)	Principiante	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-E-minor-5	Bach	Keyboard partita in E minor (5)	Principiante	Public Domain
+PianoVR/Classical/Bach/Keyboard-partita-in-E-minor-6	Bach	Keyboard partita in E minor (6)	Intermedio	Public Domain
+PianoVR/Classical/Bach/March-in-E-flat-major	Bach	March in E-flat major	Principiante	Public Domain
+PianoVR/Classical/Bach/Menuet	Bach	Menuet	Principiante	Public Domain
+PianoVR/Classical/Bach/Menuet-BWV-Anh-113	Bach	Menuet [BWV Anh. 113]	Principiante	Public Domain
+PianoVR/Classical/Bach/Menuet-BWV-Anh-115	Bach	Menuet [BWV Anh. 115]	Principiante	Public Domain
+PianoVR/Classical/Bach/Menuet-BWV-Anh-116	Bach	Menuet [BWV Anh. 116]	Principiante	Public Domain
+PianoVR/Classical/Bach/Minuet-in-A-minor	Bach	Minuet in A minor	Principiante	Public Domain
+PianoVR/Classical/Bach/Minuet-in-B-flat-major	Bach	Minuet in B-flat major	Principiante	Public Domain
+PianoVR/Classical/Bach/Minuet-in-C-minor	Bach	Minuet in C minor	Principiante	Public Domain
+PianoVR/Classical/Bach/Musette	Bach	Musette	Intermedio	Public Domain
+PianoVR/Classical/Bach/Musicalisches-Opfer-Ricercare	Bach	Musicalisches Opfer, Ricercare	Intermedio	Public Domain
+PianoVR/Classical/Bach/Musikalisches-Opfer-Ricercare-a-6	Bach	Musikalisches Opfer, Ricercare a 6	Intermedio	Public Domain
+PianoVR/Classical/Bach/Partita-4-1	Bach	Partita 4 (1)	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Partita-4-2	Bach	Partita 4 (2)	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Partita-4-3	Bach	Partita 4 (3)	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Partita-4-4	Bach	Partita 4 (4)	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Partita-4-5	Bach	Partita 4 (5)	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Partita-4-6	Bach	Partita 4 (6)	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Partita-4-7	Bach	Partita 4 (7)	Avanzado	CC BY-SA
+PianoVR/Classical/Bach/Petite-Prelude-No-9	Bach	Petite Prélude No. 9	Intermedio	Public Domain
+PianoVR/Classical/Bach/Polonaise-in-D-minor	Bach	Polonaise in D minor	Principiante	Public Domain
+PianoVR/Classical/Bach/Polonaise-in-F-major	Bach	Polonaise in F major	Principiante	Public Domain
+PianoVR/Classical/Bach/Polonaise-in-F-major-BWV-Anh-117a	Bach	Polonaise in F major [BWV Anh. 117a]	Principiante	Public Domain
+PianoVR/Classical/Bach/Polonaise-in-G-minor	Bach	Polonaise in G minor	Principiante	Public Domain
+PianoVR/Classical/Bach/Praeludium-10	Bach	Praeludium 10	Avanzado	Public Domain
+PianoVR/Classical/Bach/Praeludium-15-BWV-860	Bach	Praeludium 15 - BWV 860	Intermedio	Public Domain
+PianoVR/Classical/Bach/Praeludium-2	Bach	Praeludium 2	Intermedio	Public Domain
+PianoVR/Classical/Bach/Praeludium-IX	Bach	Praeludium IX	Principiante	Public Domain
+PianoVR/Classical/Bach/Prelude	Bach	Prelude	Intermedio	CC BY-SA
+PianoVR/Classical/Bach/Preludio-con-Fuga-1	Bach	Preludio con Fuga (1)	Intermedio	Public Domain
+PianoVR/Classical/Bach/Preludio-con-Fuga-2	Bach	Preludio con Fuga (2)	Principiante	Public Domain
+PianoVR/Classical/Bach/Rondo-in-E-flat-Major	Bach	Rondo in E-flat Major	Principiante	Public Domain
+PianoVR/Classical/Bach/Sinfonia-1	Bach	Sinfonia 1	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-10	Bach	Sinfonia 10	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-11	Bach	Sinfonia 11	Principiante	Public Domain
+PianoVR/Classical/Bach/Sinfonia-12	Bach	Sinfonia 12	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-13	Bach	Sinfonia 13	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-14	Bach	Sinfonia 14	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-15	Bach	Sinfonia 15	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-2	Bach	Sinfonia 2	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-3	Bach	Sinfonia 3	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-4	Bach	Sinfonia 4	Principiante	Public Domain
+PianoVR/Classical/Bach/Sinfonia-5	Bach	Sinfonia 5	Principiante	Public Domain
+PianoVR/Classical/Bach/Sinfonia-6	Bach	Sinfonia 6	Principiante	Public Domain
+PianoVR/Classical/Bach/Sinfonia-7	Bach	Sinfonia 7	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-8	Bach	Sinfonia 8	Intermedio	Public Domain
+PianoVR/Classical/Bach/Sinfonia-9	Bach	Sinfonia 9	Principiante	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-1	Bach	Six Partitas (Clavierubung part I): No. 1	Intermedio	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-2	Bach	Six Partitas (Clavierubung part I): No. 2	Avanzado	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-5-1	Bach	Six Partitas (Clavierubung part I): No. 5 (1)	Principiante	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-5-2	Bach	Six Partitas (Clavierubung part I): No. 5 (2)	Principiante	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-5-3	Bach	Six Partitas (Clavierubung part I): No. 5 (3)	Principiante	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-5-4	Bach	Six Partitas (Clavierubung part I): No. 5 (4)	Principiante	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-5-5	Bach	Six Partitas (Clavierubung part I): No. 5 (5)	Principiante	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-5-6	Bach	Six Partitas (Clavierubung part I): No. 5 (6)	Intermedio	Public Domain
+PianoVR/Classical/Bach/Six-Partitas-Clavierubung-part-I-No-5-7	Bach	Six Partitas (Clavierubung part I): No. 5 (7)	Avanzado	Public Domain
+PianoVR/Classical/Bach/Toccata-in-f-sharp-minor	Bach	Toccata in f sharp minor	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Fur-Elise	Beethoven	Für Elise	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Menuett-Op-WoO-82	Beethoven	Menuett Op. WoO 82	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Prelude-Op-WoO-55	Beethoven	Prelude Op. WoO 55	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Seven-Variations-Opus-WoO-78	Beethoven	Seven Variations - Opus WoO 78	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Six-Variations	Beethoven	Six Variations	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-1-1st-Movement-Allegro	Beethoven	Sonata No. 1 (1st Movement: Allegro)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-1-2nd-Movement-Adagio	Beethoven	Sonata No. 1 (2nd Movement: Adagio)	Intermedio	CC BY-SA
+PianoVR/Classical/Beethoven/Sonata-No-1-3rd-Movement-Allegretto	Beethoven	Sonata No. 1 (3rd Movement: Allegretto)	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-1-4th-Movement-Prestissimo	Beethoven	Sonata No. 1 (4th Movement: Prestissimo)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-14-Moonlight-3rd-Movement-Presto-agitato	Beethoven	Sonata No. 14 “Moonlight” (3rd Movement: Presto agitato)	Intermedio	CC BY-SA
+PianoVR/Classical/Beethoven/Sonata-No-17-1st-Movement-Largo-Allegro	Beethoven	Sonata No. 17 (1st Movement: Largo - Allegro)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-17-2nd-Movement-Adagio	Beethoven	Sonata No. 17 (2nd Movement: Adagio)	Principiante	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-19-1st-Movement-Andante	Beethoven	Sonata No. 19 (1st Movement: Andante)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-19-2nd-Movement-Rondo-Allegro	Beethoven	Sonata No. 19 (2nd Movement: Rondo-Allegro)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-20-1st-Movement-Allegro-ma-non-troppo	Beethoven	Sonata No. 20 (1st Movement: Allegro, ma non troppo)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-20-2nd-Movement-Tempo-di-Menuetto	Beethoven	Sonata No. 20 (2nd Movement: Tempo di Menuetto)	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-23-Appassionata-2nd-Movement-Andante-con-moto	Beethoven	Sonata No. 23 “Appassionata” (2nd Movement: Andante con moto)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-23-Appassionata-3rd-Movement-Allegro-ma-non-troppo	Beethoven	Sonata No. 23 “Appassionata” (3rd Movement: Allegro, ma non troppo - Presto)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-24-1st-Movement-Adagio-cantabile	Beethoven	Sonata No. 24 (1st Movement: Adagio cantabile)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-24-2nd-Movement-Allegro-vivace	Beethoven	Sonata No. 24 (2nd Movement: Allegro vivace)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-25-1st-Movement-Presto-alla-tedesca	Beethoven	Sonata No. 25 (1st Movement: Presto alla tedesca)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-25-2nd-Movement-Andante	Beethoven	Sonata No. 25 (2nd Movement: Andante)	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-25-3rd-Movement-Vivace	Beethoven	Sonata No. 25 (3rd Movement: Vivace)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-27-1st-Movement-Mit-Lebhaftigkeit	Beethoven	Sonata No. 27 (1st Movement: Mit Lebhaftigkeit)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-5-1st-Movement-Allegro-molto-e-con-brio	Beethoven	Sonata No. 5 (1st Movement: Allegro molto e con brio)	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-5-3rd-Movement-Prestissimo	Beethoven	Sonata No. 5 (3rd Movement: Prestissimo)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-6-1st-Movement-Allegro	Beethoven	Sonata No. 6 (1st Movement: Allegro)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-6-2nd-Movement-Allegretto	Beethoven	Sonata No. 6 (2nd Movement: Allegretto)	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-6-3rd-Movement-Presto	Beethoven	Sonata No. 6 (3rd Movement: Presto)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-8-Pathetique-1st-Movement-Grave-Allegro-molto-e-co	Beethoven	Sonata No. 8 “Pathétique” (1st Movement: Grave, Allegro molto e con brio)	Avanzado	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-8-Pathetique-2nd-Movement-Adagio-cantabile	Beethoven	Sonata No. 8 “Pathétique” (2nd Movement: Adagio cantabile)	Intermedio	Public Domain
+PianoVR/Classical/Beethoven/Sonata-No-8-Pathetique-3rd-Movement-Rondo	Beethoven	Sonata No. 8 “Pathétique” (3rd Movement: Rondo)	Avanzado	Public Domain
+PianoVR/Classical/Benda/3-Satz-aus-der-Sonate-in-G-Dur	Benda	3. Satz aus der Sonate in G-Dur	Principiante	Public Domain
+PianoVR/Classical/Brahms/2-Intermezzo	Brahms	2. Intermezzo	Intermedio	Public Domain
+PianoVR/Classical/Brahms/Waltz-No-10	Brahms	Waltz No. 10	Avanzado	Public Domain
+PianoVR/Classical/Brahms/Waltz-No-15	Brahms	Waltz No. 15	Avanzado	Public Domain
+PianoVR/Classical/Burgmuller/Ballade	Burgmüller	Ballade	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/Consolation	Burgmüller	Consolation	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/Douce-Plainte	Burgmüller	Douce Plainte	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/Innocence	Burgmüller	Innocence	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/L-Adieu	Burgmüller	L'Adieu	Avanzado	Public Domain
+PianoVR/Classical/Burgmuller/La-Babillarde	Burgmüller	La Babillarde	Avanzado	Public Domain
+PianoVR/Classical/Burgmuller/La-Bergeronnette	Burgmüller	La Bergeronnette	Avanzado	Public Domain
+PianoVR/Classical/Burgmuller/La-Candeur	Burgmüller	La Candeur	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/La-Gracieuse	Burgmüller	La Gracieuse	Avanzado	Public Domain
+PianoVR/Classical/Burgmuller/La-Pastorale	Burgmüller	La Pastorale	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/La-Petite-Reunion	Burgmüller	La Petite Réunion	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/Le-Courant-Limpide	Burgmüller	Le Courant Limpide	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/Progres	Burgmüller	Progrès	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/Tendre-Fleur	Burgmüller	Tendre Fleur	Intermedio	Public Domain
+PianoVR/Classical/Burgmuller/l-Arabesque	Burgmüller	l'Arabesque	Avanzado	Public Domain
+PianoVR/Classical/Chaikovski/Doumka	Chaikovski	Doumka	Avanzado	Public Domain
+PianoVR/Classical/Chaikovski/March-of-the-Wooden-Soldiers	Chaikovski	March of the Wooden Soldiers	Intermedio	Public Domain
+PianoVR/Classical/Chaikovski/Morning-Prayer	Chaikovski	Morning Prayer	Principiante	Public Domain
+PianoVR/Classical/Chaikovski/Old-French-Song	Chaikovski	Old French Song	Principiante	Public Domain
+PianoVR/Classical/Chaikovski/The-Seasons-February	Chaikovski	The Seasons: February	Intermedio	Public Domain
+PianoVR/Classical/Chaikovski/The-Seasons-January	Chaikovski	The Seasons: January	Intermedio	Public Domain
+PianoVR/Classical/Chopin/Ballade-number-4	Chopin	Ballade number 4	Avanzado	Public Domain
+PianoVR/Classical/Chopin/Etude-As-Dur	Chopin	Etüde As-Dur	Avanzado	Public Domain
+PianoVR/Classical/Chopin/Etude-c-moll	Chopin	Etüde c-moll	Avanzado	Public Domain
+PianoVR/Classical/Chopin/Etude-f-moll	Chopin	Etüde f-moll	Avanzado	Public Domain
+PianoVR/Classical/Chopin/Fantaisie-Impromptu	Chopin	Fantaisie-Impromptu	Avanzado	Public Domain
+PianoVR/Classical/Chopin/Mazurka-Op-6-No-1	Chopin	Mazurka: Op.6, No.1	Avanzado	CC BY
+PianoVR/Classical/Chopin/Nocturne-No-3	Chopin	Nocturne No. 3	Intermedio	CC BY-SA
+PianoVR/Classical/Chopin/Prelude	Chopin	Prelude	Intermedio	Public Domain
+PianoVR/Classical/Chopin/Prelude-Op-28-No-1	Chopin	Prelude: Op. 28, No. 1	Intermedio	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-Op-28-No-2	Chopin	Prelude: Op. 28, No. 2	Principiante	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-Op-28-No-20	Chopin	Prelude: Op. 28, No. 20	Principiante	Public Domain
+PianoVR/Classical/Chopin/Prelude-Op-28-No-4-Suffocation	Chopin	Prelude: Op. 28, No. 4 ('Suffocation')	Intermedio	Public Domain
+PianoVR/Classical/Chopin/Prelude-10	Chopin	Prélude 10	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-11	Chopin	Prélude 11	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-12	Chopin	Prélude 12	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-13	Chopin	Prélude 13	Intermedio	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-14	Chopin	Prélude 14	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-16	Chopin	Prélude 16	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-17	Chopin	Prélude 17	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-18	Chopin	Prélude 18	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-19	Chopin	Prélude 19	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-21	Chopin	Prélude 21	Intermedio	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-22	Chopin	Prélude 22	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-23	Chopin	Prélude 23	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-24	Chopin	Prélude 24	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-3	Chopin	Prélude 3	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-5	Chopin	Prélude 5	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-8	Chopin	Prélude 8	Avanzado	CC BY-SA
+PianoVR/Classical/Chopin/Prelude-9	Chopin	Prélude 9	Principiante	CC BY-SA
+PianoVR/Classical/Chopin/Trois-Nouvelles-Etudes-No-1-F-Minor	Chopin	Trois Nouvelles Etudes, No. 1 F Minor	Intermedio	Public Domain
+PianoVR/Classical/Chopin/Walzer-h-moll	Chopin	Walzer h-moll	Avanzado	Public Domain
+PianoVR/Classical/Clementi/Sonatina-1	Clementi	Sonatina (1)	Intermedio	Public Domain
+PianoVR/Classical/Clementi/Sonatina-2	Clementi	Sonatina (2)	Intermedio	Public Domain
+PianoVR/Classical/Clementi/Sonatina-3	Clementi	Sonatina (3)	Principiante	Public Domain
+PianoVR/Classical/Comeau/Ellen-s-Song	Comeau	Ellen's Song	Principiante	CC BY-SA
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-1	Czerny	160 Eight-Measure Exercises, No. 1	Intermedio	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-11	Czerny	160 Eight-Measure Exercises, No. 11	Avanzado	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-12	Czerny	160 Eight-Measure Exercises, No. 12	Principiante	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-13	Czerny	160 Eight-Measure Exercises, No. 13	Avanzado	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-14	Czerny	160 Eight-Measure Exercises, No. 14	Avanzado	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-16	Czerny	160 Eight-Measure Exercises, No. 16	Intermedio	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-17	Czerny	160 Eight-Measure Exercises, No. 17	Principiante	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-18	Czerny	160 Eight-Measure Exercises, No. 18	Intermedio	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-2	Czerny	160 Eight-Measure Exercises, No. 2	Avanzado	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-3	Czerny	160 Eight-Measure Exercises, No. 3	Avanzado	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-4	Czerny	160 Eight-Measure Exercises, No. 4	Avanzado	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-5	Czerny	160 Eight-Measure Exercises, No. 5	Intermedio	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-6	Czerny	160 Eight-Measure Exercises, No. 6	Intermedio	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-7	Czerny	160 Eight-Measure Exercises, No. 7	Principiante	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-8	Czerny	160 Eight-Measure Exercises, No. 8	Intermedio	Public Domain
+PianoVR/Classical/Czerny/160-Eight-Measure-Exercises-No-9	Czerny	160 Eight-Measure Exercises, No. 9	Principiante	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-1	Czerny	50 Melodische Übungsstücke, No. 1	Avanzado	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-10	Czerny	50 Melodische Übungsstücke, No. 10	Avanzado	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-2	Czerny	50 Melodische Übungsstücke, No. 2	Avanzado	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-3	Czerny	50 Melodische Übungsstücke, No. 3	Intermedio	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-4	Czerny	50 Melodische Übungsstücke, No. 4	Intermedio	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-5	Czerny	50 Melodische Übungsstücke, No. 5	Avanzado	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-6	Czerny	50 Melodische Übungsstücke, No. 6	Avanzado	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-7	Czerny	50 Melodische Übungsstücke, No. 7	Avanzado	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-8	Czerny	50 Melodische Übungsstücke, No. 8	Avanzado	Public Domain
+PianoVR/Classical/Czerny/50-Melodische-Ubungsstucke-No-9	Czerny	50 Melodische Übungsstücke, No. 9	Avanzado	Public Domain
+PianoVR/Classical/Debussy/Deuxieme-Arabesque	Debussy	Deuxième Arabesque	Avanzado	CC BY-SA
+PianoVR/Classical/Debussy/Premiere-Arabesque	Debussy	Première Arabesque	Avanzado	Public Domain
+PianoVR/Classical/Debussy/Suite-Bergamasque-Clair-de-Lune	Debussy	Suite Bergamasque: Clair de Lune	Intermedio	Public Domain
+PianoVR/Classical/Dussek/Six-sonates-faciles-pour-le-Piano-Forte-IV-1	Dussek	Six sonates faciles pour le Piano Forte (IV) (1)	Intermedio	CC BY-SA
+PianoVR/Classical/Dussek/Six-sonates-faciles-pour-le-Piano-Forte-IV-2	Dussek	Six sonates faciles pour le Piano Forte (IV) (2)	Intermedio	CC BY-SA
+PianoVR/Classical/Dussek/Six-sonates-faciles-pour-le-Piano-Forte-V-1	Dussek	Six sonates faciles pour le Piano Forte (V) (1)	Intermedio	CC BY-SA
+PianoVR/Classical/Dussek/Six-sonates-faciles-pour-le-Piano-Forte-V-2	Dussek	Six sonates faciles pour le Piano Forte (V) (2)	Intermedio	CC BY-SA
+PianoVR/Classical/Field/Nocturne	Field	Nocturne	Principiante	CC BY-SA
+PianoVR/Classical/Fischer/Erato-Praeludium	Fischer	Erato Praeludium	Principiante	Public Domain
+PianoVR/Classical/Froberger/Suite-VII-in-E-minor-1	Froberger	Suite VII in E minor (1)	Principiante	Public Domain
+PianoVR/Classical/Froberger/Suite-VII-in-E-minor-2	Froberger	Suite VII in E minor (2)	Principiante	Public Domain
+PianoVR/Classical/Froberger/Suite-VII-in-E-minor-3	Froberger	Suite VII in E minor (3)	Principiante	Public Domain
+PianoVR/Classical/Froberger/Suite-VII-in-E-minor-4	Froberger	Suite VII in E minor (4)	Principiante	Public Domain
+PianoVR/Classical/Gobbaerts/Les-etoiles-d-or-No-1-Valse	Gobbaerts	Les étoiles d'or, No. 1 Valse	Intermedio	CC BY-SA
+PianoVR/Classical/Gottschalk/The-Dying-Swan	Gottschalk	The Dying Swan	Intermedio	Public Domain
+PianoVR/Classical/Grieg/Albumblatt-in-E-minor	Grieg	Albumblatt in E minor	Intermedio	CC BY-SA
+PianoVR/Classical/Grieg/Ases-Tod	Grieg	Ases Tod	Principiante	Public Domain
+PianoVR/Classical/Grieg/In-the-Hall-of-the-Mountain-King	Grieg	In the Hall of the Mountain King	Intermedio	Public Domain
+PianoVR/Classical/Grieg/Lualat-The-Mountaineer-s-Song	Grieg	Lualåt (The Mountaineer's Song)	Principiante	Public Domain
+PianoVR/Classical/Grieg/Troldtog-March-of-the-Dwarfs	Grieg	Troldtog (March of the Dwarfs)	Avanzado	Public Domain
+PianoVR/Classical/Grieg/Wedding-day-at-Troldhaugen	Grieg	Wedding-day at Troldhaugen	Avanzado	Public Domain
+PianoVR/Classical/Haydn/Sonate-I-II-Menuetto	Haydn	Sonate I, II - Menuetto	Principiante	Public Domain
+PianoVR/Classical/Hunter/Possum-And-Taters	Hunter	Possum And Taters	Intermedio	Public Domain
+PianoVR/Classical/Handel/Air	Händel	Air	Intermedio	Public Domain
+PianoVR/Classical/Handel/Air-2	Händel	Air [2]	Intermedio	Public Domain
+PianoVR/Classical/Handel/Allegro	Händel	Allegro	Avanzado	Public Domain
+PianoVR/Classical/Handel/Allemande	Händel	Allemande	Intermedio	Public Domain
+PianoVR/Classical/Handel/Concerto	Händel	Concerto	Avanzado	Public Domain
+PianoVR/Classical/Handel/Entree	Händel	Entrée	Intermedio	Public Domain
+PianoVR/Classical/Handel/Fuga	Händel	Fuga	Principiante	Public Domain
+PianoVR/Classical/Handel/Gavotte	Händel	Gavotte	Principiante	Public Domain
+PianoVR/Classical/Handel/Impertinence	Händel	Impertinence	Principiante	Public Domain
+PianoVR/Classical/Handel/Menuet	Händel	Menuet	Principiante	Public Domain
+PianoVR/Classical/Handel/Menuet-Trio	Händel	Menuet (Trio)	Principiante	Public Domain
+PianoVR/Classical/Handel/Menuet-I	Händel	Menuet I	Intermedio	Public Domain
+PianoVR/Classical/Handel/Menuet-I-2	Händel	Menuet I [2]	Avanzado	Public Domain
+PianoVR/Classical/Handel/Menuet-II-Trio	Händel	Menuet II (Trio)	Principiante	Public Domain
+PianoVR/Classical/Handel/Menuet-II-Trio-2	Händel	Menuet II (Trio) [2]	Principiante	Public Domain
+PianoVR/Classical/Handel/Ouverture	Händel	Ouvertüre	Avanzado	Public Domain
+PianoVR/Classical/Handel/Passepied-et-Menuet	Händel	Passepied (et Menuet)	Intermedio	Public Domain
+PianoVR/Classical/Handel/Preludio	Händel	Preludio	Intermedio	Public Domain
+PianoVR/Classical/Handel/Sonatina	Händel	Sonatina	Intermedio	Public Domain
+PianoVR/Classical/Handel/Sonatina-in-B-flat-Major	Händel	Sonatina in B-flat Major	Intermedio	Public Domain
+PianoVR/Classical/Handel/Toccata	Händel	Toccata	Intermedio	Public Domain
+PianoVR/Classical/Iliev/A-Child-s-Wish	Iliev	A Child's Wish	Principiante	CC BY
+PianoVR/Classical/Joplin/A-Breeze-From-Alabama	Joplin	A Breeze From Alabama	Avanzado	Public Domain
+PianoVR/Classical/Joplin/Elite-Syncopations	Joplin	Elite Syncopations	Intermedio	Public Domain
+PianoVR/Classical/Joplin/Eugenia	Joplin	Eugenia	Avanzado	Public Domain
+PianoVR/Classical/Joplin/Original-Rags	Joplin	Original Rags	Avanzado	Public Domain
+PianoVR/Classical/Joplin/Peacherine-Rag	Joplin	Peacherine Rag	Avanzado	Public Domain
+PianoVR/Classical/Joplin/Pineapple-Rag	Joplin	Pineapple Rag	Avanzado	Public Domain
+PianoVR/Classical/Joplin/Search-Light-Rag	Joplin	Search-Light Rag	Avanzado	Public Domain
+PianoVR/Classical/Joplin/Something-Doing	Joplin	Something Doing	Intermedio	Public Domain
+PianoVR/Classical/Joplin/Sun-Flower-Slow-Drag	Joplin	Sun Flower Slow Drag	Avanzado	Public Domain
+PianoVR/Classical/Joplin/The-Easy-Winners	Joplin	The Easy Winners	Avanzado	Public Domain
+PianoVR/Classical/Joplin/The-Entertainer	Joplin	The Entertainer	Avanzado	Public Domain
+PianoVR/Classical/Joplin/The-Strenuous-Life	Joplin	The Strenuous Life	Avanzado	Public Domain
+PianoVR/Classical/Joplin/Wall-Street-Rag	Joplin	Wall Street Rag	Avanzado	Public Domain
+PianoVR/Classical/Kuhlau/Sonatine-I-Allegro	Kuhlau	Sonatine I - Allegro	Intermedio	Public Domain
+PianoVR/Classical/Kuhlau/Sonatine-I-Andante	Kuhlau	Sonatine I - Andante	Intermedio	Public Domain
+PianoVR/Classical/Kuhlau/Sonatine-I-Rondo	Kuhlau	Sonatine I - Rondo	Avanzado	Public Domain
+PianoVR/Classical/Kumar/Flat	Kumar	Flat	Principiante	CC BY-SA
+PianoVR/Classical/Kumar/Jumelle-qui-qoue	Kumar	Jumelle qui qoue	Principiante	CC BY-SA
+PianoVR/Classical/Kumar/Lani	Kumar	Lani	Principiante	CC BY-SA
+PianoVR/Classical/Kumar/Prelude	Kumar	Prelude	Principiante	CC BY-SA
+PianoVR/Classical/Kumar/Unfixed	Kumar	Unfixed	Principiante	CC BY-SA
+PianoVR/Classical/Kumar/Valse	Kumar	Valse	Principiante	CC BY-SA
+PianoVR/Classical/Liszt/Consolation-S-172-No-1	Liszt	Consolation, S.172 No.1	Principiante	CC BY
+PianoVR/Classical/Liszt/Consolation-S-172-No-3	Liszt	Consolation, S.172 No.3	Principiante	CC BY
+PianoVR/Classical/Liszt/Consolation-S-172-No-4	Liszt	Consolation, S.172 No.4	Principiante	CC BY
+PianoVR/Classical/Magnenat/Variations-d-automne	Magnenat	Variations d'automne	Principiante	CC BY-SA
+PianoVR/Classical/Mendelssohn/Inquietude	Mendelssohn	Inquiétude	Principiante	Public Domain
+PianoVR/Classical/Mendelssohn/Lied-Ohne-Worte-Opus-102-No-3	Mendelssohn	Lied Ohne Worte - Opus 102 No. 3	Avanzado	Public Domain
+PianoVR/Classical/Mendelssohn/Lied-Ohne-Worte-Opus-53-No-5-Volkslied	Mendelssohn	Lied Ohne Worte - Opus 53 No. 5 - Volkslied	Avanzado	Public Domain
+PianoVR/Classical/Mendelssohn/Lieder-ohne-Worte-Venetianisches-Gondellied-Op-19-No-6	Mendelssohn	Lieder ohne Worte: Venetianisches Gondellied, Op.19 No.6	Principiante	CC BY
+PianoVR/Classical/Mendelssohn/Scherzo-in-E-minor	Mendelssohn	Scherzo in E minor	Intermedio	Public Domain
+PianoVR/Classical/Minkus/La-Bayadere-Acte-II	Minkus	La Bayadère - Acte II	Principiante	Public Domain
+PianoVR/Classical/Mozart/Fantasy-in-D-minor	Mozart	Fantasy in D minor	Intermedio	Public Domain
+PianoVR/Classical/Mozart/Fugue-fragment-Anh-41-375g	Mozart	Fugue fragment Anh. 41 (375g)	Intermedio	Public Domain
+PianoVR/Classical/Mozart/Fugue-in-E-flat-Major-KV-153-375f	Mozart	Fugue in E-flat Major KV 153/375f	Intermedio	Public Domain
+PianoVR/Classical/Mozart/Fugue-in-G-Minor-KV-154-385k	Mozart	Fugue in G Minor KV 154/385k	Principiante	Public Domain
+PianoVR/Classical/Mozart/Gigue-in-G-Major	Mozart	Gigue in G Major	Avanzado	Public Domain
+PianoVR/Classical/Mozart/Marche-funebre-KV-453a	Mozart	Marche funebre KV 453a	Principiante	Public Domain
+PianoVR/Classical/Mozart/Menuett-N2-fur-das-Pianoforte-Koch-Verz-N2	Mozart	Menuett N°2 fûr das Pianoforte Kôch Verz N°2	Principiante	Public Domain
+PianoVR/Classical/Mozart/Piano-Sonata-in-C-Major-KV-309-1st-Part	Mozart	Piano Sonata in C Major - KV 309 (1st Part)	Avanzado	Public Domain
+PianoVR/Classical/Mozart/Sonata-Facile-First-movement	Mozart	Sonata Facile - First movement	Avanzado	CC BY-SA
+PianoVR/Classical/Mozart/Sonata-Facile-Second-movement	Mozart	Sonata Facile - Second movement	Intermedio	CC BY-SA
+PianoVR/Classical/Mozart/Sonata-Facile-Third-movement	Mozart	Sonata Facile - Third movement	Avanzado	CC BY-SA
+PianoVR/Classical/Mozart/Sonata-in-C-major-fragment	Mozart	Sonata in C major (fragment)	Avanzado	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Menuetto	Mozart	Sonate Opus KV 331 - Menuetto	Avanzado	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Rondo-Alla-Turca	Mozart	Sonate Opus KV 331 - Rondo Alla Turca	Intermedio	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Tema	Mozart	Sonate Opus KV 331 - Tema	Principiante	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Variation-1	Mozart	Sonate Opus KV 331 - Variation 1	Avanzado	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Variation-2	Mozart	Sonate Opus KV 331 - Variation 2	Intermedio	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Variation-3	Mozart	Sonate Opus KV 331 - Variation 3	Avanzado	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Variation-4	Mozart	Sonate Opus KV 331 - Variation 4	Avanzado	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Variation-5	Mozart	Sonate Opus KV 331 - Variation 5	Intermedio	Public Domain
+PianoVR/Classical/Mozart/Sonate-Opus-KV-331-Variation-6	Mozart	Sonate Opus KV 331 - Variation 6	Avanzado	Public Domain
+PianoVR/Classical/Mueller/Siciliano	Mueller	Siciliano	Intermedio	Public Domain
+PianoVR/Classical/Musorgski/Pictures-at-an-Exhibition	Músorgski	Pictures at an Exhibition	Avanzado	CC BY-SA
+PianoVR/Classical/Pachelbel/Fugues-on-the-Magnificat-III-7	Pachelbel	Fugues on the Magnificat III. 7.	Principiante	CC BY-SA
+PianoVR/Classical/Pease/Amaryllis	Pease	Amaryllis	Avanzado	Public Domain
+PianoVR/Classical/Pejacsevich/Gondellied	Pejacsevich	Gondellied	Principiante	Public Domain
+PianoVR/Classical/Pleyel/Rondo	Pleyel	Rondo	Principiante	Public Domain
+PianoVR/Classical/Rajmaninov/Prelude-Op-23-No-1	Rajmáninov	Prelude Op. 23, No. 1	Intermedio	CC BY-SA
+PianoVR/Classical/Rajmaninov/Prelude-Op-23-No-10	Rajmáninov	Prelude Op. 23, No. 10	Intermedio	CC BY-SA
+PianoVR/Classical/Rajmaninov/Prelude-Op-23-No-2	Rajmáninov	Prelude Op. 23, No. 2	Avanzado	CC BY-SA
+PianoVR/Classical/Rajmaninov/Prelude-Op-23-No-4	Rajmáninov	Prelude Op. 23, No. 4	Intermedio	CC BY-SA
+PianoVR/Classical/Rajmaninov/Prelude-Op-23-No-6	Rajmáninov	Prelude Op. 23, No. 6	Avanzado	CC BY-SA
+PianoVR/Classical/Rajmaninov/Prelude-Op-23-No-8	Rajmáninov	Prelude Op. 23, No. 8	Avanzado	CC BY-SA
+PianoVR/Classical/Rajmaninov/Prelude-Op-23-No-9	Rajmáninov	Prelude Op. 23, No. 9	Avanzado	CC BY-SA
+PianoVR/Classical/Rajmaninov/Prelude-in-C-minor	Rajmáninov	Prelude in C# minor	Avanzado	CC BY-SA
+PianoVR/Classical/Rameau/Les-Sauvages	Rameau	Les Sauvages	Principiante	Public Domain
+PianoVR/Classical/Rameau/Les-Tendres-Plaintes	Rameau	Les Tendres Plaintes	Principiante	Public Domain
+PianoVR/Classical/Rameau/Tambourin	Rameau	Tambourin	Principiante	Public Domain
+PianoVR/Classical/Rimski-Korsakov/Fugue-sur-le-nom-de-Bach	Rimski-Kórsakov	Fugue sur le nom de Bach	Principiante	Public Domain
+PianoVR/Classical/Rimski-Korsakov/Impromptu	Rimski-Kórsakov	Impromptu	Intermedio	CC BY-SA
+PianoVR/Classical/Rimski-Korsakov/Novellette	Rimski-Kórsakov	Novellette	Avanzado	CC BY-SA
+PianoVR/Classical/Rimski-Korsakov/Scherzino	Rimski-Kórsakov	Scherzino	Intermedio	CC BY-SA
+PianoVR/Classical/Satie/Celle-qui-parle-trop	Satie	Celle qui parle trop	Avanzado	CC BY-SA
+PianoVR/Classical/Satie/Danse-maigre	Satie	Danse maigre	Avanzado	CC BY-SA
+PianoVR/Classical/Satie/Deuxieme-Gnossienne	Satie	Deuxième Gnossienne	Principiante	CC BY-SA
+PianoVR/Classical/Satie/Enfantillages-Pittoresques	Satie	Enfantillages Pittoresques	Principiante	CC BY-SA
+PianoVR/Classical/Satie/Espanana	Satie	Españaña	Avanzado	CC BY-SA
+PianoVR/Classical/Satie/Gnossienne-No-1	Satie	Gnossienne No. 1	Principiante	CC BY-SA
+PianoVR/Classical/Satie/Gnossienne-No-3	Satie	Gnossienne No. 3	Principiante	CC BY-SA
+PianoVR/Classical/Satie/Gymnopedie-No-1	Satie	Gymnopédie No. 1	Principiante	Public Domain
+PianoVR/Classical/Satie/Gymnopedie-No-2	Satie	Gymnopédie No. 2	Principiante	Public Domain
+PianoVR/Classical/Satie/Gymnopedie-No-3	Satie	Gymnopédie No. 3	Principiante	Public Domain
+PianoVR/Classical/Satie/Le-porteur-de-grosses-pierres	Satie	Le porteur de grosses pierres	Principiante	CC BY-SA
+PianoVR/Classical/Satie/Regrets-des-Enfermes-Janas-et-Latude	Satie	Regrets des Enfermés (Janas et Latude)	Intermedio	CC BY-SA
+PianoVR/Classical/Satie/Sa-Taille	Satie	Sa Taille	Intermedio	CC BY-SA
+PianoVR/Classical/Satie/Ses-Jambes	Satie	Ses Jambes	Avanzado	CC BY-SA
+PianoVR/Classical/Satie/Son-Binocle	Satie	Son Binocle	Principiante	CC BY-SA
+PianoVR/Classical/Satie/Tyrolienne-turque	Satie	Tyrolienne turque	Intermedio	CC BY-SA
+PianoVR/Classical/Scarlatti/Keyboard-Sonata-in-D-Major	Scarlatti	Keyboard Sonata in D Major	Avanzado	CC BY-SA
+PianoVR/Classical/Scarlatti/Keyboard-Sonata-in-G-Major	Scarlatti	Keyboard Sonata in G Major	Avanzado	CC BY-SA
+PianoVR/Classical/Scarlatti/Sonata-in-C-major	Scarlatti	Sonata in C major	Intermedio	Public Domain
+PianoVR/Classical/Scarlatti/Sonatensatz	Scarlatti	Sonatensatz	Avanzado	Public Domain
+PianoVR/Classical/Schubert/Impromptu-in-Ges-dur	Schubert	Impromptu in Ges-dur	Intermedio	Public Domain
+PianoVR/Classical/Schubert/Moments-Musicaux-No-3-in-F-Minor	Schubert	Moments Musicaux No. 3 in F Minor	Avanzado	Public Domain
+PianoVR/Classical/Schubert/Trois-Marches-militaires	Schubert	Trois Marches militaires	Avanzado	Public Domain
+PianoVR/Classical/Schubert/Trois-Marches-militaires-D-733-1-Op-51	Schubert	Trois Marches militaires [D.733-1 (Op. 51)]	Avanzado	Public Domain
+PianoVR/Classical/Schubert/Trois-Marches-militaires-D-733-2-Op-51	Schubert	Trois Marches militaires [D.733-2 (Op. 51)]	Avanzado	Public Domain
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-1-Melodie	Schumann	Album pour la jeunesse - 1.Mélodie	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-10-Le-gai-laboureur	Schumann	Album pour la jeunesse - 10.Le gai laboureur	Intermedio	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-11-Sicilienne	Schumann	Album pour la jeunesse - 11.Sicilienne	Intermedio	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-12-Le-Pere-Fouettard	Schumann	Album pour la jeunesse - 12.Le Père Fouettard	Avanzado	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-13-Mai-cher-Mai	Schumann	Album pour la jeunesse - 13.Mai, cher Mai, ...	Intermedio	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-14-Petite-Etude	Schumann	Album pour la jeunesse - 14.Petite Etude	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-18-Chant-des-moissonneurs	Schumann	Album pour la jeunesse - 18.Chant des moissonneurs	Intermedio	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-2-Marche-militaire	Schumann	Album pour la jeunesse - 2.Marche militaire	Intermedio	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-25-Echos-du-Theatre	Schumann	Album pour la jeunesse - 25.Echos du Théâtre	Avanzado	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-26	Schumann	Album pour la jeunesse - 26. * * * * *	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-3-Chanson-fredonnee	Schumann	Album pour la jeunesse - 3.Chanson fredonnée	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-4-Un-choral	Schumann	Album pour la jeunesse - 4.Un choral	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-5-Petite-piece	Schumann	Album pour la jeunesse - 5.Petite pièce	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-6-Pauvre-orpheline	Schumann	Album pour la jeunesse - 6.Pauvre orpheline	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-7-Chanson-du-chasseur	Schumann	Album pour la jeunesse - 7.Chanson du chasseur	Intermedio	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-8-Le-cavalier-sauvage	Schumann	Album pour la jeunesse - 8.Le cavalier sauvage	Avanzado	CC BY-SA
+PianoVR/Classical/Schumann/Album-pour-la-jeunesse-9-Chanson-populaire	Schumann	Album pour la jeunesse - 9.Chanson populaire	Principiante	CC BY-SA
+PianoVR/Classical/Schumann/Feuilles-d-album	Schumann	Feuilles d'album	Intermedio	CC BY-SA
+PianoVR/Classical/Schumann/Kinderscenen-Bittendes-Kind	Schumann	Kinderscenen - Bittendes Kind	Intermedio	CC BY
+PianoVR/Classical/Schumann/Kinderscenen-Curiose-Geschichte	Schumann	Kinderscenen - Curiose Geschichte	Avanzado	CC BY
+PianoVR/Classical/Schumann/Kinderscenen-Hasche-Mann	Schumann	Kinderscenen - Hasche-Mann	Avanzado	CC BY
+PianoVR/Classical/Schumann/Kinderscenen-Wichtige-Begebenheit	Schumann	Kinderscenen - Wichtige Begebenheit	Avanzado	CC BY
+PianoVR/Classical/Schumann/Romanzen	Schumann	Romanzen	Intermedio	Public Domain
+PianoVR/Classical/Sidwell/Little-Toy-Lost	Sidwell	Little Toy Lost	Principiante	CC BY-SA
+PianoVR/Classical/Sidwell/Miniature-No-2	Sidwell	Miniature No.2	Principiante	CC BY-SA
+PianoVR/Classical/Skriabin/Prelude	Skriabin	Prelude	Avanzado	Public Domain
+PianoVR/Classical/Skriabin/Preludes-opus-16-1	Skriabin	Préludes opus 16 - 1.	Principiante	CC BY-SA
+PianoVR/Classical/Skriabin/Preludes-opus-16-2	Skriabin	Préludes opus 16 - 2.	Avanzado	CC BY-SA
+PianoVR/Classical/Skriabin/Preludes-opus-16-3	Skriabin	Préludes opus 16 - 3.	Principiante	CC BY-SA
+PianoVR/Classical/Skriabin/Preludes-opus-16-5	Skriabin	Préludes opus 16 - 5.	Intermedio	CC BY-SA
+PianoVR/Classical/Sousa/The-Washington-Post	Sousa	The Washington Post	Avanzado	CC BY-SA
+PianoVR/Classical/Sousa/Transit-of-Venus-March	Sousa	Transit of Venus March	Avanzado	Public Domain
+PianoVR/Classical/Spagnoletti/The-Countess-of-Farnham-s-Waltz	Spagnoletti	The Countess of Farnham's Waltz	Intermedio	Public Domain
+PianoVR/Classical/Strauss/The-Blue-Danube-Waltz-main-theme	Strauss	The Blue Danube Waltz (main theme)	Intermedio	CC BY-SA
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-1	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 1	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-10	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 10	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-11	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 11	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-12	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 12	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-13	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 13	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-14	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 14	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-15	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 15	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-16	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 16	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-17	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 17	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-18	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 18	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-19	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 19	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-2	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 2	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-20	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 20	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-22	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 22	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-23	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 23	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-26	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 26	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-27	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 27	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-29	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 29	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-3	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 3	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-30	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 30	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-31	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 31	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-33	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 33	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-34	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 34	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-4	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 4	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-5	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 5	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-6	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 6	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-7	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 7	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-8	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 8	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-1st-part-nr-9	Tradicional	Traditioner af Swenska Folk-Dansar, 1st part, nr 9	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-2nd-part-nr-15	Tradicional	Traditioner af Swenska Folk-Dansar, 2nd part, nr 15	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-2nd-part-nr-27	Tradicional	Traditioner af Swenska Folk-Dansar, 2nd part, nr 27	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-2nd-part-nr-30	Tradicional	Traditioner af Swenska Folk-Dansar, 2nd part, nr 30	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-2nd-part-nr-31	Tradicional	Traditioner af Swenska Folk-Dansar, 2nd part, nr 31	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-2nd-part-nr-36	Tradicional	Traditioner af Swenska Folk-Dansar, 2nd part, nr 36	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-1	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 1	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-11	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 11	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-12	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 12	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-13	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 13	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-14	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 14	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-15	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 15	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-16	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 16	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-17	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 17	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-18	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 18	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-19	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 19	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-2	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 2	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-21	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 21	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-22	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 22	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-23	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 23	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-24	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 24	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-3	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 3	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-34	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 34	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-4	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 4	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-5	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 5	Principiante	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-6	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 6	Avanzado	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-7	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 7	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-8	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 8	Intermedio	CC BY
+PianoVR/Classical/Tradicional/Traditioner-af-Swenska-Folk-Dansar-3rd-part-nr-9	Tradicional	Traditioner af Swenska Folk-Dansar, 3rd part, nr 9	Intermedio	CC BY
+PianoVR/Classical/Turpin/The-Harlem-Rag	Turpin	The Harlem Rag	Avanzado	Public Domain
+PianoVR/Classical/Turpin/The-St-Louis-Rag	Turpin	The St. Louis Rag	Avanzado	Public Domain
+PianoVR/Classical/Wanhal/Rondo	Wanhal	Rondo	Intermedio	Public Domain
+PianoVR/Classical/Yaniewicz/Les-Lanciers	Yaniewicz	Les Lanciers	Principiante	Public Domain
