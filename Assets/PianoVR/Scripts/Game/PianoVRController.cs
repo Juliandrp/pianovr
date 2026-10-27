@@ -221,10 +221,12 @@ namespace PianoVR.Game
                 handPresser.enabled = hands;
                 handPresser.surface = mode == InputMode.HandsOnTable ? HandKeyPresser.Surface.Table : HandKeyPresser.Surface.RealPiano;
             }
-            if (virtualKeyboard != null) virtualKeyboard.gameObject.SetActive(mode == InputMode.HandsOnTable);
+            // En el editor no hay piano real debajo: siempre se dibuja el virtual y suenan tus teclas.
+            bool showVirtual = mode == InputMode.HandsOnTable || Application.isEditor;
+            if (virtualKeyboard != null) virtualKeyboard.gameObject.SetActive(showVirtual);
             calibrator.TableMode = mode == InputMode.HandsOnTable;
             // Con piano real (MIDI o manos) tu piano ya suena; en la mesa suena el sintetizador.
-            if (gameAudio != null) gameAudio.playOwnKeys = mode == InputMode.HandsOnTable;
+            if (gameAudio != null) gameAudio.playOwnKeys = showVirtual;
             // El seguimiento de manos tiene más ruido: una nota fantasma no debería romperte la racha.
             score.wrongBreaksCombo = !hands;
 
