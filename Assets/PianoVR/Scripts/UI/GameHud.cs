@@ -218,6 +218,7 @@ namespace PianoVR.UI
         string Status(bool starReady)
         {
             if (player.Song == null) return "Sin canciones";
+            if (!layout.IsCalibrated) return "Calibra tu piano para ver las notas (botón Calibrar o Y)";
             if (player.IsFailed) return "Perdiste... ¡inténtalo otra vez!";
             if (player.IsFinished) return "";
             if (!player.IsPlaying) return player.Time <= -player.leadIn + 0.01f ? "Toca  TOCAR  para empezar" : "Pausa";

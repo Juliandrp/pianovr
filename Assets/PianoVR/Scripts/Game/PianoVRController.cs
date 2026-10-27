@@ -134,7 +134,7 @@ namespace PianoVR.Game
             if (menu == null) return;
             int row = 0;
             menu.Add(row++, 0, 1, () => player.IsPlaying ? "PAUSA" : player.IsFinished || player.IsFailed ? "OTRA VEZ" : "TOCAR",
-                () => player.TogglePause(), highlighted: () => !player.IsPlaying);
+                PlayOrCalibrate, highlighted: () => !player.IsPlaying);
             menu.Add(row++, 0, 1, () => "¡ESTRELLA!", () => score.ActivateStar(), visible: () => score.CanActivateStar,
                 highlighted: () => true);
             menu.Add(row++, 0, 1, () => "OTRA VEZ", () => { player.Restart(); }, visible: () => InMenu && !player.IsFinished && !player.IsFailed);
@@ -289,7 +289,7 @@ namespace PianoVR.Game
             int range = layout.LowestPitch * 1000 + layout.HighestPitch;
             if (range != _arrangedFor && !player.IsPlaying) Rearrange();
             if (layout.IsCalibrated && Mode != InputMode.HandsOnTable)
-                Flash($"Piano listo: {PianoLayout.SizeLabel(layout.Size)} (si no es así, cámbialo en el menú)");
+                Flash($"Piano listo: {PianoLayout.SizeLabel(layout.Size)}\n<size=40>¿Las teclas iluminadas coinciden con las reales? Si no, Calibrar otra vez.\nVoltea la palma izquierda hacia ti para abrir el menú.</size>", 8f);
         }
 
         // ---------- Opciones ----------
@@ -347,6 +347,18 @@ namespace PianoVR.Game
             Flash(PianoLayout.SizeLabel(layout.Size) + " · recalibra si cambió tu teclado");
         }
 
+        /// <summary>Sin piano calibrado no hay dónde dibujar las notas: primero se calibra.</summary>
+        void PlayOrCalibrate()
+        {
+            if (!layout.IsCalibrated && !player.IsPlaying)
+            {
+                Flash("Primero marca dónde está tu piano");
+                BeginCalibration();
+                return;
+            }
+            player.TogglePause();
+        }
+
         void BeginCalibration()
         {
             player.Pause();
@@ -372,10 +384,10 @@ namespace PianoVR.Game
             Flash("Practicar: " + (player.practiceHand == PracticeHand.Both ? "ambas manos" : player.practiceHand == PracticeHand.Right ? "mano derecha" : "mano izquierda"));
         }
 
-        void Flash(string msg)
+        void Flash(string msg, float seconds = 3f)
         {
             _flash = msg;
-            _flashUntil = Time.time + 3f;
+            _flashUntil = Time.time + seconds;
         }
 
         // ---------- Entrada ----------
@@ -394,7 +406,7 @@ namespace PianoVR.Game
             var left = InputDevices.GetDeviceAtXRNode(XRNode.LeftHand);
             bool calibrating = calibrator.Current != KeyboardCalibrator.Step.Idle;
 
-            if (Down(right, CommonUsages.primaryButton, "A") && !calibrating) player.TogglePause();
+            if (Down(right, CommonUsages.primaryButton, "A") && !calibrating) PlayOrCalibrate();
             if (Down(right, CommonUsages.secondaryButton, "B"))
             {
                 if (calibrating) calibrator.Cancel(); else player.Restart();

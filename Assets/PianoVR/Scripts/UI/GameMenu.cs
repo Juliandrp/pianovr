@@ -168,26 +168,85 @@ namespace PianoVR.UI
             }
         }
 
+        /// <summary>True mientras el menú está sobre la palma izquierda.</summary>
+        public bool OnPalm { get; private set; }
+
+        bool _placedOnce;
+
+        /// <summary>Alto total de la columna de botones visibles.</summary>
+        float MenuHeight()
+        {
+            var rows = new HashSet<int>();
+            foreach (var b in _buttons) if (b.visible == null || b.visible()) rows.Add(b.row);
+            return Mathf.Max(1, rows.Count) * (buttonHeight + gap);
+        }
+
         void PlaceRoot()
         {
+            float h = MenuHeight();
+            Vector3 targetPos;
+            Quaternion targetRot;
+
+            // 1) Menú en la palma: voltea la palma izquierda hacia ti.
+            bool palm = HandInput.TryGetPalm(Side.Left, out var palmPos, out var palmNormal);
+            if (palm)
+            {
+                float facing = Vector3.Dot(palmNormal, (_head.position - palmPos).normalized);
+                OnPalm = OnPalm ? facing > 0.35f : facing > 0.6f;
+            }
+            else OnPalm = false;
+
+            if (OnPalm)
+            {
+                // La columna queda justo encima de la mano, mirando hacia ti.
+                targetPos = palmPos + palmNormal * 0.04f + Vector3.up * (h + 0.05f);
+                Vector3 toMenu = targetPos - _head.position;
+                targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(toMenu, Vector3.up).normalized, Vector3.up);
+                _root.SetPositionAndRotation(targetPos, targetRot); // pegado a la mano, sin suavizado
+                _placedOnce = true;
+                return;
+            }
+
+            Vector3 fwd = Vector3.ProjectOnPlane(_head.forward, Vector3.up).normalized;
+            if (fwd.sqrMagnitude < 0.01f) fwd = Vector3.forward;
+
             if (layout.IsCalibrated)
             {
-                Vector3 pos = layout.Origin - layout.Right * (buttonWidth * 0.5f + 0.06f)
-                              + layout.Up * 0.48f + layout.Forward * 0.02f;
-                _root.SetPositionAndRotation(pos, layout.Rotation * Quaternion.Euler(tilt, 0f, 0f));
+                // 2) A la izquierda del piano, girado hacia tu cabeza para leerlo cómodo.
+                targetPos = layout.Origin - layout.Right * (buttonWidth * 0.5f + 0.07f)
+                            + layout.Up * (h + 0.06f) - layout.Forward * 0.02f;
+                Vector3 look = Vector3.ProjectOnPlane(targetPos - _head.position, Vector3.up).normalized;
+                targetRot = Quaternion.LookRotation(look, Vector3.up) * Quaternion.Euler(tilt * 0.5f, 0f, 0f);
             }
             else
             {
-                Vector3 fwd = Vector3.ProjectOnPlane(_head.forward, Vector3.up).normalized;
-                if (fwd.sqrMagnitude < 0.01f) fwd = Vector3.forward;
-                Vector3 pos = _head.position + fwd * 0.42f - Vector3.up * 0.15f;
-                _root.SetPositionAndRotation(pos, Quaternion.LookRotation(fwd) * Quaternion.Euler(tilt, 0f, 0f));
+                // 3) Sin piano calibrado: flota delante, pero solo se mueve si te giras mucho (no te persigue).
+                Vector3 desired = _head.position + fwd * 0.5f + Vector3.up * (h * 0.5f - 0.2f);
+                Vector3 current = _root.position;
+                Vector3 toCurrent = Vector3.ProjectOnPlane(current - _head.position, Vector3.up);
+                float angle = Vector3.Angle(fwd, toCurrent);
+                float dist = toCurrent.magnitude;
+                bool needsMove = !_placedOnce || angle > 35f || dist < 0.25f || dist > 0.9f;
+                targetPos = needsMove ? desired : current;
+                targetRot = Quaternion.LookRotation(Vector3.ProjectOnPlane(targetPos - _head.position, Vector3.up).normalized, Vector3.up);
+            }
+
+            if (!_placedOnce)
+            {
+                _root.SetPositionAndRotation(targetPos, targetRot);
+                _placedOnce = true;
+            }
+            else
+            {
+                float k = 1f - Mathf.Exp(-6f * Time.deltaTime);
+                _root.SetPositionAndRotation(Vector3.Lerp(_root.position, targetPos, k), Quaternion.Slerp(_root.rotation, targetRot, k));
             }
         }
 
         void GatherPointers()
         {
-            _pointerValid[0] = HandInput.TryGetFingerTip(Side.Left, Finger.Index, out _pointers[0]);
+            // Con el menú en la palma izquierda, solo se toca con la mano derecha.
+            _pointerValid[0] = !OnPalm && HandInput.TryGetFingerTip(Side.Left, Finger.Index, out _pointers[0]);
             _pointerValid[1] = HandInput.TryGetFingerTip(Side.Right, Finger.Index, out _pointers[1]);
             if (calibrator != null)
             {

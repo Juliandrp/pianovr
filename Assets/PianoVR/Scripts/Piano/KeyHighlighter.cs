@@ -26,6 +26,10 @@ namespace PianoVR.Piano
         MaterialPropertyBlock _mpb;
         static readonly int BaseColor = Shader.PropertyToID("_BaseColor");
         static readonly int ColorId = Shader.PropertyToID("_Color");
+        float _showAllUntil;
+
+        /// <summary>Ilumina todas las teclas unos segundos para comprobar que la calibración coincide con el piano real.</summary>
+        public void ShowLayout(float seconds = 5f) => _showAllUntil = Time.time + seconds;
 
         void Start()
         {
@@ -69,6 +73,7 @@ namespace PianoVR.Piano
                 t.localScale = new Vector3(layout.KeyWidth(p), 0.002f, layout.KeyDepth(p) * 0.9f);
                 _keys[p].gameObject.SetActive(false);
             }
+            if (layout.IsCalibrated) ShowLayout();
         }
 
         void LateUpdate()
@@ -106,6 +111,13 @@ namespace PianoVR.Piano
                 Color? c = null;
                 if (held) c = (_expected[p] || _sounding[p]) ? correct : wrong;
                 else if (_expected[p]) c = expected;
+                else if (Time.time < _showAllUntil)
+                {
+                    // Una ola de izquierda a derecha para ver bien dónde quedó cada tecla.
+                    float wave = 0.5f + 0.5f * Mathf.Sin(Time.time * 6f - (p - layout.LowestPitch) * 0.35f);
+                    c = PianoLayout.IsBlack(p) ? new Color(1f, 0.6f, 0.1f, 0.35f + 0.4f * wave)
+                                               : new Color(1f, 1f, 1f, 0.25f + 0.35f * wave);
+                }
 
                 if (c.HasValue)
                 {

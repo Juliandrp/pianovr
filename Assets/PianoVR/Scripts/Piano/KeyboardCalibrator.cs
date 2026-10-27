@@ -21,7 +21,11 @@ namespace PianoVR.Piano
         [SerializeField] float markerSize = 0.012f;
 
         [Header("Con las manos")]
-        public float dwellSeconds = 1.5f;
+        [Tooltip("Solo si la mano izquierda no se ve: segundos con el índice quieto para marcar.")]
+        public float dwellSeconds = 2.5f;
+        [Tooltip("Distancia pulgar-índice (m) para contar un pellizco.")]
+        public float pinchOn = 0.02f;
+        public float pinchOff = 0.04f;
         [Tooltip("Cuánto puede moverse el dedo (m) y seguir contando como quieto.")]
         public float dwellTolerance = 0.012f;
 
@@ -32,6 +36,10 @@ namespace PianoVR.Piano
         public bool UsingHands { get; private set; }
         /// <summary>True si la calibración actual es de mesa (texto distinto).</summary>
         public bool TableMode { get; set; }
+        /// <summary>Mensaje si el último punto no sirvió (por ejemplo, demasiado cerca del primero).</summary>
+        public string LastError { get; private set; } = "";
+        /// <summary>True si se confirma con pellizco de la mano izquierda.</summary>
+        public bool UsingPinch { get; private set; }
 
         Transform _marker;
         Renderer _markerRenderer;
@@ -41,18 +49,21 @@ namespace PianoVR.Piano
         Vector3 _dwellAnchor;
         float _dwellTime;
         float _cooldown;
+        bool _pinching;
 
         public string Instructions
         {
             get
             {
-                string how = UsingHands ? "deja la punta del índice derecho quieta" : "toca con la punta del control y aprieta el gatillo";
+                string how = !UsingHands ? "toca con la punta del control derecho y aprieta el gatillo"
+                    : UsingPinch ? "pon la punta del índice DERECHO ahí\ny PELLIZCA con la mano IZQUIERDA (pulgar + índice)"
+                    : "deja la punta del índice derecho quieta 2 segundos";
                 string where1 = TableMode ? "donde quieres el EXTREMO IZQUIERDO del piano (borde frontal)" : "el borde frontal de la tecla MÁS GRAVE (izquierda)";
                 string where2 = TableMode ? "donde quieres el EXTREMO DERECHO" : "el borde frontal de la tecla MÁS AGUDA (derecha)";
                 switch (Current)
                 {
-                    case Step.Lowest: return $"CALIBRAR 1/2\nMarca {where1}:\n{how}.";
-                    case Step.Highest: return $"CALIBRAR 2/2\nAhora {where2}:\n{how}.";
+                    case Step.Lowest: return $"CALIBRAR 1/2\nMarca {where1}:\n{how}.{ErrorLine}";
+                    case Step.Highest: return $"CALIBRAR 2/2\nAhora {where2}:\n{how}.{ErrorLine}";
                     default: return "";
                 }
             }
@@ -72,7 +83,9 @@ namespace PianoVR.Piano
             _marker.gameObject.SetActive(false);
         }
 
-        public void Begin() => SetStep(Step.Lowest);
+        string ErrorLine => string.IsNullOrEmpty(LastError) ? "" : $"\n<color=#FF7777>{LastError}</color>";
+
+        public void Begin() { LastError = ""; SetStep(Step.Lowest); }
         public void Cancel() => SetStep(Step.Idle);
 
         void SetStep(Step s)
@@ -96,7 +109,18 @@ namespace PianoVR.Piano
             _marker.position = tip;
 
             bool capture = false;
-            if (fromHand)
+            UsingPinch = fromHand && HandInput.TryGetPinchDistance(Side.Left, out float pinch);
+            if (UsingPinch)
+            {
+                // Confirmar con pellizco de la mano izquierda: más deliberado que esperar quieto.
+                HandInput.TryGetPinchDistance(Side.Left, out pinch);
+                bool now = _pinching ? pinch < pinchOff : pinch < pinchOn;
+                capture = now && !_pinching && _cooldown <= 0f;
+                _pinching = now;
+                _markerRenderer.material.color = now ? new Color(0.2f, 1f, 0.4f) : new Color(1f, 0.8f, 0.1f);
+                DwellProgress = 0f;
+            }
+            else if (fromHand)
             {
                 if (Vector3.Distance(tip, _dwellAnchor) > dwellTolerance)
                 {
@@ -124,10 +148,26 @@ namespace PianoVR.Piano
             if (Current == Step.Lowest)
             {
                 _lowPoint = tip;
+                LastError = "";
                 SetStep(Step.Highest);
             }
             else if (Current == Step.Highest)
             {
+                float span = Vector3.ProjectOnPlane(tip - _lowPoint, Vector3.up).magnitude;
+                if (span < 0.25f || span > 1.6f)
+                {
+                    LastError = span < 0.25f ? "Ese punto quedó muy cerca del primero. Empecemos de nuevo."
+                                             : "Ese punto quedó muy lejos del primero. Empecemos de nuevo.";
+                    SetStep(Step.Lowest);
+                    return;
+                }
+                if (Vector3.Dot(tip - _lowPoint, Camera.main != null ? Camera.main.transform.right : Vector3.right) < 0f)
+                {
+                    LastError = "Marca primero la tecla de la IZQUIERDA (grave) y luego la de la DERECHA.";
+                    SetStep(Step.Lowest);
+                    return;
+                }
+                LastError = "";
                 // En un piano real se detecta solo cuántas teclas tiene; en la mesa se respeta el tamaño elegido.
                 layout.CalibrateWorld(_lowPoint, tip, detectSize: !TableMode);
                 SetStep(Step.Idle);
